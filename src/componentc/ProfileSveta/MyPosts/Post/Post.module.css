@@ -1,0 +1,34 @@
+.item {
+  margin: 30px 250px 0px 250px;
+  border-width: 1px;
+  border-color: black;
+  border-radius: 8px;
+  border-style: double;
+  text-align: center
+}
+
+.bang img {
+  width: 30px;
+  height: 30px;
+  border-radius: 80px;
+  margin: 0px 0px 0px 10px;
+}
+
+.bang {
+  display: flex;
+  margin: 0px 0px 10px 10px;
+}
+
+.name {
+  margin: 0px 0px 0px 10px;
+}
+
+.bild img{
+  border-radius: 10px;
+  width: 50%;
+}
+
+.text{
+  margin: 0px 0px 0px 10px;
+  font-size: 20px;
+}

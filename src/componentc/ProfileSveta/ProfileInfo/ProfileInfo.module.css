@@ -1,0 +1,19 @@
+.page img{
+    margin: 10px 10px 10px 10px;
+    width: 150px;
+    border-radius: 80px;
+  }
+
+  .page{
+    display: flex;
+  }
+
+  .name{
+    margin: 0px 0px 10px 0px;
+    font-size: 30px;
+  }
+
+  .information{
+    font-size:17px;
+    margin: 0px 0px 0px 0px;
+  }

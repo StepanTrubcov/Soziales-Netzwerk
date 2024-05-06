@@ -1,0 +1,19 @@
+.dialog a:active,
+.dialog a:focus {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.dialog a{
+    padding: 20px;
+    font-size: 20px;
+    text-decoration: none;
+    color:black;
+    margin: 0 0 0 0;
+}
+
+.dialog img{
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+}
