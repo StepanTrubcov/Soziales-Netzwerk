@@ -40,7 +40,20 @@ postDataSveta: [
   {message:"How are you?", like:90, bild:'https://www.sunhome.ru/i/wallpapers/38/sinie-glaza-leoparda.orig.jpg', id:1 },
   {message:"Hello my Name Is Sveta!!!", like:" 23", bild:'https://gas-kvas.com/grafic/uploads/posts/2023-10/1696602070_gas-kvas-com-p-kartinki-s-prirodoi-45.jpg', id:2},
   {message:"It's my first post!!!", like:" 5",  bild:'https://wdorogu.ru/images/wp-content/uploads/2018/05/Sommerlandschaft-Bilder-37.jpg', id:3}
-]
+],
+FriendsData:[ 
+  {ava:'https://img.freepik.com/free-psd/3d-illustration-of-person-with-sunglasses_23-2149436188.jpg?w=740&t=st=1713118909~exp=1713119509~hmac=f3cddbc51a512b50fc2d48bd328892d630bc6bede302d313de2ef02ea5523a27', name: "Dimych", id: "/profileDimych" },
+{ava:'https://img.freepik.com/free-psd/3d-illustration-of-person-with-glasses_23-2149436185.jpg?w=740&t=st=1714664218~exp=1714664818~hmac=dddfdc3b68bf4dcf59ebce56ab576262117d674ded418962ab0c419cb71ce494', name: "Sveta", id: "/profileSveta" },
+{ava:'https://img.freepik.com/premium-photo/a-cat-wearing-sunglasses-and-a-suit-with-a-tie_917213-21811.jpg?w=740', name: "Vasay", id: "3" },
+{ava:'https://img.freepik.com/free-photo/3d-rendering-zoom-call-avatar_23-2149556782.jpg?t=st=1714664310~exp=1714667910~hmac=604308e3699d7af2c0c7c934b29f9ef3be331648f82596ed0ae3d35b06413ff1&w=900', name: "Sasha ", id: "/profileSacha" },
+{ava:'https://img.freepik.com/free-psd/3d-render-avatar-character_23-2150611746.jpg?t=st=1714664333~exp=1714667933~hmac=01e5e8df7a46da11b24efc6f2b4d5f4d1076decdc18a7f6c706bffa3177c8fea&w=740', name: "Viktor", id: "5" },
+{ava:'https://img.freepik.com/premium-vector/geek-monkey-logo-template_232120-37.jpg?w=740', name: "Valera", id: "6" },
+],
+postDataSacha: [
+  {message:"I wish everyone well", like:33, bild:'https://proprikol.ru/wp-content/uploads/2020/09/lyubovnye-kartinki-47.jpg', id:1 },
+  {message:"Hello", like:"124", bild:'https://www.rabstol.net/uploads/gallery/main/34/rabstol_net_waterfalls_1.jpg', id:2},
+  {message:"It's my first post", like:"5",  bild:'https://www.fonstola.ru/pic/201404/1680x1050/fonstola.ru_144383.jpg', id:3}
+],
 },
 messagesPage:{
   messagesData: [
@@ -73,7 +86,7 @@ messagesPage:{
       img: "https://img.freepik.com/free-psd/3d-illustration-of-person-with-sunglasses_23-2149436188.jpg?w=740&t=st=1713118909~exp=1713119509~hmac=f3cddbc51a512b50fc2d48bd328892d630bc6bede302d313de2ef02ea5523a27",
     },
   ],
-}
+},
 };
 
 export default state;

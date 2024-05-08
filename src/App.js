@@ -9,6 +9,7 @@ import Music from './componentc/Music/Music';
 import ProfileDimych from './componentc/ProfileDimych/ProfileDimych'
 import ProfileSveta from './componentc/ProfileSveta/ProfileSveta'
 import Settings from './componentc/Settings/Settings';
+import ProfileSacha from './componentc/ProfileSacha/ProfileSacha'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = (props) => {
@@ -16,7 +17,7 @@ const App = (props) => {
     <BrowserRouter>
     <div className="app-wrapper">
       <Header />
-      <Nav />
+      <Nav FriendsData={props.state.profilePage.FriendsData} />
       <div className="app-wrapper-content">
         <Routes>
       <Route path="/profile/*"  element={<Profile postData={props.state.profilePage.postData} />} />
@@ -26,6 +27,7 @@ const App = (props) => {
       <Route path="/settings/*" element={<Settings />} />
       <Route path="/profileDimych/*"  element={<ProfileDimych postDataDimych={props.state.profilePage.postDataDimych} />} />
       <Route path="/profileSveta/*"  element={<ProfileSveta postDataSveta={props.state.profilePage.postDataSveta} />} />
+      <Route path="/profileSacha/*"  element={<ProfileSacha postDataSacha={props.state.profilePage.postDataSacha} />} />
       </Routes>
       </div>
     </div>
