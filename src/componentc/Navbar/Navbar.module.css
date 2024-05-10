@@ -21,5 +21,7 @@ color: rgb(252, 218, 0);
 }
 
 .Friends p{
+  margin: 0 0 0 0;
   font-size: 30px;
+  color:white;
 }

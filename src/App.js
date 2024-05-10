@@ -10,6 +10,7 @@ import ProfileDimych from './componentc/ProfileDimych/ProfileDimych'
 import ProfileSveta from './componentc/ProfileSveta/ProfileSveta'
 import Settings from './componentc/Settings/Settings';
 import ProfileSacha from './componentc/ProfileSacha/ProfileSacha'
+import ProfileVasay from "./componentc/ProfileVasay/ProfileVasay";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = (props) => {
@@ -17,17 +18,18 @@ const App = (props) => {
     <BrowserRouter>
     <div className="app-wrapper">
       <Header />
-      <Nav FriendsData={props.state.profilePage.FriendsData} />
+      <Nav FriendsData={props.state.FriendsPage.FriendsData} />
       <div className="app-wrapper-content">
         <Routes>
-      <Route path="/profile/*"  element={<Profile postData={props.state.profilePage.postData} />} />
-      <Route path="/dialogs/*" element={<Dialogs dialogsData={props.state.profilePage.dialogsData} messagesData={props.state.messagesPage.messagesData} />} />
+      <Route path="/profile/*"  element={<Profile postData={props.state.profilePage} />} />
+      <Route path="/dialogs/*" element={<Dialogs dialogsData={props.state.messagesPage.dialogsData} messagesData={props.state.messagesPage.messagesData} />} />
       <Route path="/news/*" element={<News />} />
       <Route path="/music/*" element={<Music />} />
       <Route path="/settings/*" element={<Settings />} />
-      <Route path="/profileDimych/*"  element={<ProfileDimych postDataDimych={props.state.profilePage.postDataDimych} />} />
-      <Route path="/profileSveta/*"  element={<ProfileSveta postDataSveta={props.state.profilePage.postDataSveta} />} />
-      <Route path="/profileSacha/*"  element={<ProfileSacha postDataSacha={props.state.profilePage.postDataSacha} />} />
+      <Route path="/profileDimych/*"  element={<ProfileDimych postDataDimych={props.state.profilePageDimych} />} />
+      <Route path="/profileSveta/*"  element={<ProfileSveta postDataSveta={props.state.profilePageSveta} />} />
+      <Route path="/profileSacha/*"  element={<ProfileSacha postDataSacha={props.state.profilePageSacha} />} />
+      <Route path="/profileVasay/*"  element={<ProfileVasay postDataVasay={props.state.profilePageVasay} />} />
       </Routes>
       </div>
     </div>

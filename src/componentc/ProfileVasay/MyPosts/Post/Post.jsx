@@ -6,8 +6,8 @@ const Post = (props) => {
     <div className={c.post}>
       <div className={c.item}>
         <div className={c.bang}>
-        <img src='https://cspromogame.ru//storage/upload_images/avatars/3358.jpg'></img>
-          <p className={c.name}>Sacha G.</p>
+        <img src='https://img.freepik.com/premium-photo/a-cat-wearing-sunglasses-and-a-suit-with-a-tie_917213-21811.jpg?w=740'></img>
+          <p className={c.name}>Vasay G.</p>
         </div>
         <div className={c.text}>
         { props.message }

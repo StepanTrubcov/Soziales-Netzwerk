@@ -7,9 +7,9 @@ import Background from './Background/Background'
 const Profile = (props) => {
     return <div>
       <Background />
-      <ProfileInfo />
+      <ProfileInfo profileInfo={props.postDataSacha.profileInfo}/>
      <div>
-     <MyPosts postDataSveta={props.postDataSacha} />
+     <MyPosts postDataSveta={props.postDataSacha.postDataSacha} />
      </div>
     </div>
 }

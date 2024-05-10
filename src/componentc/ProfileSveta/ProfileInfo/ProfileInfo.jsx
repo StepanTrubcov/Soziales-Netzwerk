@@ -1,15 +1,15 @@
 import React from 'react';
 import c from './ProfileInfo.module.css';
 
-const ProfileInfo = () =>{
+const ProfileInfo = (props) =>{
     return(
         <div className={c.page}>
-      <img src="https://img.freepik.com/free-psd/3d-illustration-of-person-with-glasses_23-2149436185.jpg?w=740&t=st=1714664218~exp=1714664818~hmac=dddfdc3b68bf4dcf59ebce56ab576262117d674ded418962ab0c419cb71ce494"></img>
+      <img src={props.profileInfo.img}></img>
       <ul>
-      <p className={c.name}>Sveta T.</p>
-      <p className={c.information}>Birthday: 14 Jule</p>
-      <p className={c.information}>City: Moskay</p>
-      <p className={c.information}>Education: МОУСОШ № 5</p>
+      <p className={c.name}>{props.profileInfo.name}</p>
+      <p className={c.information}>{props.profileInfo.Birthday}</p>
+      <p className={c.information}>{props.profileInfo.City}</p>
+      <p className={c.information}>{props.profileInfo.Education}</p>
       </ul>
      </div>
     )

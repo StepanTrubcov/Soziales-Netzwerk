@@ -9,7 +9,14 @@ let newDialogsData = props.dialogsData.map((dialog) => (<DialogsItem ava={dialog
 
 let newMessagesData = props.messagesData.map((message)=>(<Messages message={message.message} id={message.id} name={message.name} img={message.img} to={message.to} />))
 
-  return (
+let newMessage = React.createRef();
+
+let addMessage =()=>{
+  let text = newMessage.current.value;
+  alert(text)
+}
+  
+return (
     <div className={c.dialogs}>
       <p>DIALOGS</p>
       <div className={c.titel}></div>
@@ -18,8 +25,10 @@ let newMessagesData = props.messagesData.map((message)=>(<Messages message={mess
       </div>
       <div>
         {newMessagesData}
-        <textarea className={c.linie}></textarea>
-      <button className={c.button}>Schicken</button>
+        <div className={c.newMessage}>
+          <textarea className={c.linie} ref={newMessage}></textarea>
+      <button className={c.button} onClick={addMessage}>Schicken</button>
+      </div>
       </div>
     </div>
   );

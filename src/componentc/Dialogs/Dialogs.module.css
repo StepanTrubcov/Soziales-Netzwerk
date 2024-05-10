@@ -15,19 +15,25 @@
     border-color: rgb(0, 0, 0);  
 }
 
-
-.button{
-    background-color: #04AA6D; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 40px;
-}
-
 .linie{
     width: 80%;
+    font-size: 20px;
+    height: 25px;
+}
+
+.newMessage{
+    display: flex;
+}
+
+.button{
+    font-size: 20px;
+    height: 30px;
+    width: 100px;
+border-radius: 8px;
+color:rgb(0, 0, 0);
+background-color:rgba(12, 142, 255, 0.66);
+}
+
+.button:hover{
+background-color:rgba(0, 93, 175, 0.66);
 }
