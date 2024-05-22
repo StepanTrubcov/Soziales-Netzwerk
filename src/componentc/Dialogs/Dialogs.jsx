@@ -13,7 +13,12 @@ let newMessage = React.createRef();
 
 let addMessage =()=>{
   let text = newMessage.current.value;
-  alert(text)
+  props.addMessage(text);
+}
+
+let newText = () =>{
+  let text = newMessage.current.value;
+  props.updateNewMessageText(text);
 }
   
 return (
@@ -26,7 +31,7 @@ return (
       <div>
         {newMessagesData}
         <div className={c.newMessage}>
-          <textarea className={c.linie} ref={newMessage}></textarea>
+          <textarea onChange={newText} className={c.linie} ref={newMessage}></textarea>
       <button className={c.button} onClick={addMessage}>Schicken</button>
       </div>
       </div>

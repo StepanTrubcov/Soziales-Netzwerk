@@ -17,3 +17,13 @@ background-color:rgba(12, 142, 255, 0.66);
 .button:hover{
 background-color:rgba(0, 75, 141, 0.66);
 }
+
+.line{
+    font-size: 25px;
+    width: 200px;
+    height: 35px;
+}
+
+.img{
+    white-space: nowrap;
+}

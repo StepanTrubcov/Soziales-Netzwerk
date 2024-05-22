@@ -4,7 +4,7 @@
   border-color: black;
   border-radius: 8px;
   border-style: double;
-  text-align: center
+  text-align: center;
 }
 
 .bang img {
@@ -31,4 +31,13 @@
 .text{
   margin: 0px 0px 0px 10px;
   font-size: 20px;
+}
+
+.like img{
+  width: 15px;
+  
+}
+
+.button {
+  border-radius: 10px;
 }
