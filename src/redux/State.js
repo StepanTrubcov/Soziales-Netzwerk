@@ -1,4 +1,7 @@
-import rerenderEntireTree from "../render";
+
+let rerenderEntireTree = () =>{
+
+}
 
 let state = {
   profilePage: {
@@ -251,7 +254,7 @@ let state = {
 
 window.state = state;
 
-export let addPost = () => {
+export const addPost = () => {
   let newPost = {
     id: 4,
     bild: state.profilePage.newPostImg,
@@ -264,30 +267,42 @@ export let addPost = () => {
   rerenderEntireTree(state);
 };
 
-export let addMessage = (postMessage) => {
+export const addMessage = (textMessage) => {
   let newMessage = {
     to: "/profile",
     img: "https://cspromogame.ru//storage/upload_images/avatars/755.jpg",
     id: 4,
-    message: postMessage,
+    message: textMessage,
     name: "Me",
   };
   state.messagesPage.messagesData.push(newMessage);
+  state.messagesPage.newMessageText = '';
   rerenderEntireTree(state);
 };
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
   state.profilePage.newPostText=(newText);
   rerenderEntireTree(state);
 };
 
-export let updateNewPostImg = (newImg) => {
+export const updateNewPostImg = (newImg) => {
   state.profilePage.newPostImg=(newImg);
   rerenderEntireTree(state);
 };
 
-export let updateNewMessageText = (newText) => {
+export const updateNewMessageText = (newText) => {
   state.messagesPage.newMessageText=(newText);
+  rerenderEntireTree(state);
+};
+
+export const subscribed = (observer) => {
+  rerenderEntireTree = observer;
+}
+
+export const addLike = () => {
+  for(let i = 0;i<  state.profilePage.postData.length;i++){
+    state.profilePage.postData[i].like =     state.profilePage.postData[i].like + 1
+  }
   rerenderEntireTree(state);
 };
 

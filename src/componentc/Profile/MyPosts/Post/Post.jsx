@@ -3,6 +3,10 @@ import c from './Post.module.css';
 
 const Post = (props) => {
 
+  const addLike = () => {
+    props.addLike()
+  }
+
     return(
     <div className={c.post}>
       <div className={c.item}>
@@ -19,7 +23,7 @@ const Post = (props) => {
       <div className={c.like} >
         like: 
         { props.like }
-        <button className={c.button} >
+        <button className={c.button} onClick={addLike} >
           <img src='https://icon-icons.com/icons2/1744/PNG/512/3643770-favorite-heart-like-likes-love-loved_113432.png' />
         </button>
       </div>

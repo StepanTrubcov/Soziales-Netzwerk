@@ -31,7 +31,7 @@ return (
       <div>
         {newMessagesData}
         <div className={c.newMessage}>
-          <textarea onChange={newText} className={c.linie} ref={newMessage}></textarea>
+          <textarea onChange={newText} className={c.linie} ref={newMessage} value={props.newMessageText}></textarea>
       <button className={c.button} onClick={addMessage}>Schicken</button>
       </div>
       </div>
