@@ -41,3 +41,7 @@
 .button {
   border-radius: 10px;
 }
+
+.button:hover{
+  border-color: brown;
+}

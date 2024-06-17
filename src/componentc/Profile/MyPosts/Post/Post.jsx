@@ -1,10 +1,11 @@
 import React from 'react';
 import c from './Post.module.css';
+import {addLikeActionCreaton} from '../../../../redux/State'
 
 const Post = (props) => {
 
   const addLike = () => {
-    props.addLike()
+    props.dispatch(addLikeActionCreaton())
   }
 
     return(

@@ -1,5 +1,12 @@
+const ADD_POST = 'ADD-POST'
+const UPDATTE_NEW_POST_TEXT = 'UPDATTE-NEW-POST-TEXT'
+const UPDATTE_NEW_POST_IMG ='UPDATTE-NEW-POST-IMG'
+const ADD_MESSAGE ='ADD-MESSAGE'
+const UPDATTE_NEW_MESSAGE_TEXT = 'UPDATTE-NEW-MESSAGE-TEXT'
+const ADD_LIKE ='ADD-LIKE'
+
 let store = {
-_state:{
+  _state: {
     profilePage: {
       postData: [
         {
@@ -28,8 +35,8 @@ _state:{
         City: "City: Rzhev",
         Education: "Education: МОУСОШ № 1",
       },
-      newPostText:'Hello',
-      newPostImg:'',
+      newPostText: "Hello",
+      newPostImg: "",
     },
     profilePageVasay: {
       postDataVasay: [
@@ -210,7 +217,7 @@ _state:{
           img: "https://img.freepik.com/free-psd/3d-illustration-of-person-with-sunglasses_23-2149436188.jpg?w=740&t=st=1713118909~exp=1713119509~hmac=f3cddbc51a512b50fc2d48bd328892d630bc6bede302d313de2ef02ea5523a27",
         },
       ],
-      newMessageText:'',
+      newMessageText: "",
     },
     FriendsPage: {
       FriendsData: [
@@ -248,56 +255,81 @@ _state:{
     },
   },
 
-getState(){
-    return this._state
+  getState() {
+    return this._state;
   },
-_callSubscriber(){},
-addPost(){
-  let newPost = {
-    id: 4,
-    bild: this._state.profilePage.newPostImg,
-    message: this._state.profilePage.newPostText,
-    like: 0,
-  };
-  this._state.profilePage.postData.push(newPost);
-  this._state.profilePage.newPostText = '';
-  this._state.profilePage.newPostImg = '';
-  this._callSubscriber(this._state);
-},
-addMessage(textMessage){
-  let newMessage = {
-    to: "/profile",
-    img: "https://cspromogame.ru//storage/upload_images/avatars/755.jpg",
-    id: 4,
-    message: textMessage,
-    name: "Me",
-  };
-  this._state.messagesPage.messagesData.push(newMessage);
-  this._state.messagesPage.newMessageText = '';
-  this._callSubscriber(this._state);
-},
-updateNewPostText(newText){
-  this._state.profilePage.newPostText=(newText);
-  this._callSubscriber(this._state);
-},
-updateNewPostImg(newImg){
-  this._state.profilePage.newPostImg=(newImg);
-  this._callSubscriber(this._state);
-},
-updateNewMessageText(newText){
-  this._state.messagesPage.newMessageText=(newText);
-  this._callSubscriber(this._state);
-},
-subscribed(observer){
-  this._callSubscriber = observer;
-},
-addLike(){
-  for(let i = 0;i<  this._state.profilePage.postData.length;i++){
-    debugger;
-    this._state.profilePage.postData[i].like = this._state.profilePage.postData[i].like + 1
-  }
-  this._callSubscriber(this._state);
-},
+  subscribed(observer) {
+    this._callSubscriber = observer;
+  },
+  _callSubscriber() {},
+  
+  dispatch(action) {
+    if (action.type === ADD_POST) {
+      let newPost = {
+        id: 4,
+        bild: this._state.profilePage.newPostImg,
+        message: this._state.profilePage.newPostText,
+        like: 0,
+      };
+      this._state.profilePage.postData.push(newPost);
+      this._state.profilePage.newPostText = "";
+      debugger;
+      this._state.profilePage.newPostImg = "";
+      this._callSubscriber(this._state);
+    } else if (action.type === UPDATTE_NEW_POST_TEXT) {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    } else if(action.type===ADD_MESSAGE){
+      let newMessage = {
+        to: "/profile",
+        img: "https://cspromogame.ru//storage/upload_images/avatars/755.jpg",
+        id: 4,
+        message: action.textMessage,
+        name: "Me",
+      };
+      this._state.messagesPage.messagesData.push(newMessage);
+      this._state.messagesPage.newMessageText = "";
+      this._callSubscriber(this._state);
+    } else if(action.type===UPDATTE_NEW_POST_IMG){
+      this._state.profilePage.newPostImg = action.newImg;
+      this._callSubscriber(this._state);
+    } else if(action.type===UPDATTE_NEW_MESSAGE_TEXT){
+      this._state.messagesPage.newMessageText = action.newText;
+      this._callSubscriber(this._state);
+    } else if(action.type===ADD_LIKE){
+        this._state.profilePage.postData[0].like = this._state.profilePage.postData[0].like + 1
+      this._callSubscriber(this._state);
+    }
+  },
 };
+
+export const addPostActionCreator = (text,img) => ({
+    type: ADD_POST,
+    text: text,
+    img: img,
+
+});
+
+export const newTextActionCreator = (newText) => ({
+    type: UPDATTE_NEW_POST_TEXT,
+    newText: newText,
+});
+
+export const newImgActionCreator = (newImg) => ({
+    type: UPDATTE_NEW_POST_IMG,
+    newImg: newImg,
+});
+
+export const addMessageActionCreator =(text)=>({
+    type:ADD_MESSAGE, textMessage:text
+})
+
+export const newTextActionCreator0 =(text)=>({
+type:UPDATTE_NEW_MESSAGE_TEXT,text:text
+})
+
+export const addLikeActionCreaton =()=>({
+  type:ADD_LIKE
+})
 
 export default store;
