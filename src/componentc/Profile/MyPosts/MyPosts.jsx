@@ -1,11 +1,10 @@
 import React from "react";
 import c from "./MyPosts.module.css";
-import Post from "./Post/Post";
-import {addPostActionCreator,newTextActionCreator,newImgActionCreator} from '../../../redux/profile-reducer'
+import PostConteiner from "./Post/PostConteiner";
 
 const MyPosts = (props) => {
   let newPostData = props.postData.map((message) => (
-    <Post
+    <PostConteiner
       dispatch={props.dispatch}
       message={message.message}
       like={message.like}
@@ -21,17 +20,20 @@ const MyPosts = (props) => {
   let addPost0 = () => {
     let text = newPostElement0.current.value;
     let img = newPostElement1.current.value;
-    props.dispatch(addPostActionCreator(text,img));
+    props.addPost0(text,img);
+    // props.dispatch(addPostActionCreator(text,img));
   };
 
   let newText = () => {
     let newText = newPostElement0.current.value;
-    props.dispatch(newTextActionCreator(newText));
+    props.newTextActionCreator(newText);
+    // props.dispatch(newTextActionCreator(newText));
   };
 
   let newImg = () => {
     let newImg = newPostElement1.current.value;
-    props.dispatch(newImgActionCreator(newImg));
+    props.newImgActionCreator(newImg)
+    // props.dispatch(newImgActionCreator(newImg));
   };
 
   return (

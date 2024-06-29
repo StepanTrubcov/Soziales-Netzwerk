@@ -1,11 +1,10 @@
 import React from 'react';
 import c from './Post.module.css';
-import {addLikeActionCreaton} from '../../../../redux/profile-reducer'
 
 const Post = (props) => {
 
   const addLike = () => {
-    props.dispatch(addLikeActionCreaton())
+    props.addLike()
   }
 
     return(

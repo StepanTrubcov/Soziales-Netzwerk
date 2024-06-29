@@ -2,7 +2,6 @@ import React from "react";
 import c from "./Dialogs.module.css";
 import DialogsItem from './DialogsItem/DialogsItem';
 import Messages from './Message/Message'
-import {addMessageActionCreator,newTextActionCreator0} from '../../redux/dialogs-reducer'
 
 const Dialogs = (props) => {
 
@@ -14,12 +13,12 @@ let newMessage = React.createRef();
 
 let addMessage =()=>{
   let text = newMessage.current.value;
-  props.dispatch(addMessageActionCreator(text));
+  props.addMessage(text)
 }
 
 let newText = () =>{
   let text = newMessage.current.value;
-  props.dispatch(newTextActionCreator0(text));
+  props.newText(text)
 }
   
 return (
@@ -33,7 +32,7 @@ return (
         {newMessagesData}
         <div className={c.newMessage}>
           <textarea onChange={newText} className={c.linie} ref={newMessage} value={props.newMessageText}></textarea>
-      <button className={c.button} onClick={addMessage}>Schicken</button>
+      <button className={c.button} onClick={addMessage}>Send</button>
       </div>
       </div>
     </div>

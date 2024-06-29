@@ -1,5 +1,7 @@
 import profileReducer from './profile-reducer'
 import dialogsReducer from './dialogs-reducer'
+import sidebarReducer from './sidebar-reducer'
+import FriendsReducer from './Friends-reducer'
 
 let store = {
   _state: {
@@ -249,6 +251,9 @@ let store = {
         },
       ],
     },
+    sidebar:{
+      sidebarPage:[],
+    },
   },
 
   getState() {
@@ -262,7 +267,9 @@ let store = {
   dispatch(action) {
 
     this._state.profilePage = profileReducer(this._state.profilePage,action);
-    this._state.messagesPage = dialogsReducer(this._state.messagesPage,action)
+    this._state.messagesPage = dialogsReducer(this._state.messagesPage,action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar,action)
+    this._state.sidebar = FriendsReducer(this._state.FriendsPage,action)
 
        this._callSubscriber(this._state);
   },

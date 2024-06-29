@@ -1,6 +1,5 @@
 import React from 'react';
-import c from './Profile.module.css';
-import MyPosts from './MyPosts/MyPosts';
+import MyPostsConteiner from './MyPosts/MyPostsConteiner';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import Background from './Background/Background'
 
@@ -9,7 +8,7 @@ const Profile = (props) => {
       <Background />
       <ProfileInfo profileInfo={props.postData.profileInfo}/>
      <div>
-     <MyPosts postData={props.postData.postData} dispatch={props.dispatch} newPostText={props.newPost.newPostText} newPostImg={props.newPost.newPostImg}/>
+     <MyPostsConteiner store={props.store} postData={props.postData.postData}  newPostText={props.newPost.newPostText} newPostImg={props.newPost.newPostImg}/>
      </div>
     </div>
 }

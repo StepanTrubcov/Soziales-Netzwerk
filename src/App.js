@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./componentc/Header/Header";
 import Nav from "./componentc/Navbar/Navbar";
 import Profile from "./componentc/Profile/Profile";
-import Dialogs from "./componentc/Dialogs/Dialogs";
+import DialogsConteiner from "./componentc/Dialogs/DialogsConteiner";
 import News from './componentc/News/News';
 import Music from './componentc/Music/Music';
 import ProfileDimych from './componentc/ProfileDimych/ProfileDimych'
@@ -21,8 +21,8 @@ const App = (props) => {
       <Nav FriendsData={props.state.FriendsPage.FriendsData} />
       <div className="app-wrapper-content">
         <Routes>
-      <Route path="/profile/*"  element={<Profile postData={props.state.profilePage} dispatch={props.dispatch} newPost={props.state.profilePage}/>} />
-      <Route path="/dialogs/*" element={<Dialogs dialogsData={props.state.messagesPage.dialogsData} messagesData={props.state.messagesPage.messagesData} dispatch={props.dispatch} newMessageText={props.state.messagesPage.newMessageText}/>} />
+      <Route path="/profile/*"  element={<Profile store={props.store} postData={props.state.profilePage} dispatch={props.dispatch} newPost={props.state.profilePage}/>} />
+      <Route path="/dialogs/*" element={<DialogsConteiner store={props.store}/>} />
       <Route path="/news/*" element={<News />} />
       <Route path="/music/*" element={<Music />} />
       <Route path="/settings/*" element={<Settings />} />
