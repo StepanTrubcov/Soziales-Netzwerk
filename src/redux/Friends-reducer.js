@@ -31,7 +31,7 @@ let initialState = {
       name: "Valera",
       id: "6",
     },
-  ],
+  ]
 };
 
 const FriendsReducer = (state = initialState, action) => {

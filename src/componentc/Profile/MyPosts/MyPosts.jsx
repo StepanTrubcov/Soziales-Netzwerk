@@ -21,7 +21,6 @@ const MyPosts = (props) => {
     let text = newPostElement0.current.value;
     let img = newPostElement1.current.value;
     props.addPost0(text,img);
-    // props.dispatch(addPostActionCreator(text,img));
   };
 
   let newText = () => {

@@ -5,34 +5,31 @@ import {
   newImgActionCreator,
 } from "../../../redux/profile-reducer";
 import MyPosts from "./MyPosts";
+import {connect} from 'react-redux'
 
-const MyPostsConteiner = (props) => {
+ let mapStateToProps = (state) =>{
+  return{
+    postData:state.profilePage.postData,
+    newPostText:state.profilePage.newPostText,
+    newPostImg:state.profilePage.newPostImg,
+  }
+ }
 
-let state = props.store.getState();
+ let mapDispatchToProps = (dispatch) =>{
+  return{
+    dispatch:dispatch,
+    addPost0:(text, img)=>{
+      dispatch(addPostActionCreator(text, img));
+    },
+    newTextActionCreator:(newText)=>{
+      dispatch(newTextActionCreator(newText));
+    },
+    newImgActionCreator:(newImg)=>{
+      dispatch(newImgActionCreator(newImg));
+    }
+  }
+ }
 
-  let addPost0 = (text, img) => {
-   props.store.dispatch(addPostActionCreator(text, img));
-  };
-
-  let newText = (newText) => {
-    props.store.dispatch(newTextActionCreator(newText));
-  };
-
-  let newImg = (newImg) => {
-    props.store.dispatch(newImgActionCreator(newImg));
-  };
-
-  return (
-    <MyPosts
-      addPost0={addPost0}
-      newTextActionCreator={newText}
-      newImgActionCreator={newImg}
-      postData={state.profilePage.postData}
-      newPostText={state.profilePage.newPostText}
-      newPostImg={state.profilePage.newPostImg}
-      dispatch={props.store.dispatch}
-    />
-  );
-};
+const MyPostsConteiner = connect(mapStateToProps,mapDispatchToProps) (MyPosts);
 
 export default MyPostsConteiner;
