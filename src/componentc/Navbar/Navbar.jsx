@@ -5,8 +5,8 @@ import s from "./Navbar.module.css";
 
 const Nav = (props) => {
 
-  let newFriendsData = props.FriendsData?.map(nav => (
-    <FriendsItem ava={nav.ava} name={nav.name} id={nav.id} />
+  let newFriendsData = props.users.map(u => (
+    <FriendsItem followed={u.followed} photos={u.photos} name={u.name}/>
   ));
 
   return (
@@ -23,7 +23,7 @@ const Nav = (props) => {
             </div>
             <div className={s.item}>
               <NavLink activeClassName={s.activeLink} to="/news">
-                News
+                Users
               </NavLink>
             </div>
             <div className={s.item}>
@@ -37,7 +37,7 @@ const Nav = (props) => {
               </NavLink>
             </div>
             <div className={s.Friends}>
-              <p>Friends</p>
+              <p>Friends:</p>
               {newFriendsData}
             </div>
           </nav>

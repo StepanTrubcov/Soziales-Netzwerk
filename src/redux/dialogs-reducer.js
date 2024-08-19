@@ -77,13 +77,15 @@ const dialogsReducer = (state = initialState, action) => {
         message: action.textMessage,
         name: "Me",
       };
-      state.newMessageText = "";
-      state.messagesData.push(newMessage);
-      state.newPostImg = action.newImg;
-      return state;
+      let stateCopy={...state}
+      stateCopy.messagesData = [...state.messagesData]
+      stateCopy.messagesData.push(newMessage);
+      stateCopy.newMessageText = "";
+      return stateCopy;
     case UPDATTE_NEW_MESSAGE_TEXT:
-      state.newMessageText = action.newText;
-      return state;
+      let stateCopy1={...state}
+      stateCopy1.newMessageText = action.newText;
+      return stateCopy1;
       default:
         return state;
   }

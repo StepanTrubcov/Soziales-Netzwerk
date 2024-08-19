@@ -2,6 +2,7 @@ import React from "react";
 import c from "./Dialogs.module.css";
 import DialogsItem from './DialogsItem/DialogsItem';
 import Messages from './Message/Message'
+import { Navigate } from "react-router-dom";
 
 const Dialogs = (props) => {
 
@@ -13,12 +14,13 @@ let newMessage = React.createRef();
 
 let addMessage =()=>{
   let text = newMessage.current.value;
-  props.addMessage(text)
+  props.addMessageActionCreator(text)
 }
+
 
 let newText = () =>{
   let text = newMessage.current.value;
-  props.newText(text)
+  props.newTextActionCreator0(text)
 }
   
 return (
@@ -27,6 +29,7 @@ return (
       <div className={c.titel}></div>
       <div className={c.dialogsItems}>
         {newDialogsData}
+      <hr></hr>
       </div>
       <div>
         {newMessagesData}

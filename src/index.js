@@ -19,10 +19,3 @@ let rerenderEntireTree = (state) => {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 rerenderEntireTree(store.getState());
-
-store.subscribe(() => {
-  let state = store.getState();
-  rerenderEntireTree(state);
-});
-
-reportWebVitals();

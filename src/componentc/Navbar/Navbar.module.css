@@ -8,12 +8,14 @@
     color:white;
     font-size: 20px;
     text-decoration: none;
+    font-family: monospace;
   }
 
  
 .item a:active,
 .item a:focus {
 color: rgb(252, 218, 0);
+font-family: monospace;
 }
 
 .Friends{
@@ -24,4 +26,5 @@ color: rgb(252, 218, 0);
   margin: 0 0 0 0;
   font-size: 30px;
   color:white;
+  font-family: monospace;
 }

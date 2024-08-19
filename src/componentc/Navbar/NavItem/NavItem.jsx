@@ -1,16 +1,23 @@
 import React from "react";
 import c from "./NavItem.module.css";
-import { NavLink, Route, BrowserRouter, Routes } from "react-router-dom";
+import ava from "../../../Images/ava.jpg";
 
 const FriendsItem = (props) => {
+  if (props.followed === true) {
     return (
-      <div className={c.dialog}>
-        <img className={c.ava} src={props.ava}></img>
-        <NavLink activeClassName={c.activeLink} to={props.id} >
+      <div>
+        <div className={c.line}>
+          <img
+            className={c.ava}
+            src={props.photos.small != null ? props.photos.small : ava}
+          />
+          <div className={c.name}>
           {props.name}
-        </NavLink>
+          </div>
+        </div>
       </div>
     );
-  };
+  }
+};
 
-  export default FriendsItem;
+export default FriendsItem;

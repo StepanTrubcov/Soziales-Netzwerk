@@ -1,20 +1,17 @@
 import React from "react";
 import { addLikeActionCreaton } from "../../../../redux/profile-reducer";
 import Post from './Post'
+import {connect} from 'react-redux'
 
-const PostConteiner = (props) => {
-  const addLike = () => {
-    props.dispatch(addLikeActionCreaton());
-  };
+ let mapDispatchToProps = (dispatch) =>{
+  return{
+    addLike : () => {
+      dispatch(addLikeActionCreaton());
+    }
+  }
+ }
 
-  return (
-    <Post
-      addLike={addLike}
-      message={props.message}
-      like={props.like}
-      bild={props.bild}
-    />
-  );
-};
+
+const PostConteiner =connect(mapDispatchToProps) (Post)
 
 export default PostConteiner;

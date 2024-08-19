@@ -1,17 +1,16 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import ProfileInfo from './ProfileInfo';
+import React from "react";
+import { connect } from "react-redux";
+import ProfileInfo from "./ProfileInfo";
+import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
+import { compose } from "redux";
+import {getStatus,getUpdeteStatus} from '../../../redux/profile-reducer'
 
+const mapStateToProps = (state) => {
+  return {
+    profileInfo: state.profilePage.profileInfo,
+    auth:state.auth,
+    status:state.profilePage.status,
+  };
+};
 
-const mapStateToProps = (state) =>{
-    console.log({
-        profileInfo:state.profilePage.profileInfo
-    })
-    return({
-        profileInfo:state.profilePage.profileInfo
-    })
-}
-
-const ProfileInfoConteiner = connect(mapStateToProps) (ProfileInfo)
-
-export default ProfileInfoConteiner;
+export default compose(connect(mapStateToProps,{getStatus,getUpdeteStatus}), withAuthRedirect)(ProfileInfo);

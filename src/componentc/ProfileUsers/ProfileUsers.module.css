@@ -1,3 +1,10 @@
+.name{
+    font-weight: bolder;
+    font-family: monospace;
+    margin: 0px 0px 10px 0px;
+    font-size: 30px;
+}
+
 .page img{
     margin: 10px 10px 10px 10px;
     width: 150px;
@@ -6,18 +13,12 @@
 
   .page{
     display: flex;
-  }
-
-  .name{
-    font-weight: bolder;
-    font-family: monospace;
-    margin: 0px 0px 10px 0px;
-    font-size: 30px;
+    margin: 10px 0px 0 230px;
   }
 
   .information{
     font-family: monospace;
     font-weight: bolder;
-    font-size:23px;
+    font-size:20px;
     margin: 0px 0px 0px 0px;
   }

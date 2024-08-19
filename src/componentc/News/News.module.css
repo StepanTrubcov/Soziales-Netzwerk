@@ -1,0 +1,118 @@
+.ava{
+    width: 100px;
+    border-radius: 60px;
+    margin: 0 10px 0 0;
+}
+
+.button0{
+    margin: 10px 10px 10px 13px;
+    border-radius: 8px;
+    background-color: #06b3ec;
+    font-size: 20px;
+}
+
+.button0:hover{
+    background-color: #06b3ec;
+}
+.button1:hover{
+    background-color: #06b3ec;
+}
+
+.info{
+    display: flex;
+    border-width:5px;
+    border-style:groove;
+    border-radius: 9px;
+}
+
+.line{
+    display: flex;
+    margin: 30px 100px 10px 100px;
+}
+
+.name{
+    font-family: monospace;
+    font-size: 25px;
+    margin: 10px 10px 50px 10px ;
+    font-weight: bolder;
+}
+
+.comment{
+    font-family: monospace;
+    font-size: 25px;
+    margin: 10px;
+    font-weight: bolder;
+}
+
+.city0{
+    margin: 10px 10px 10px 200px;
+}
+
+.country{
+    font-family: monospace;
+    font-size: 25px;
+    margin: 4px; 
+    font-weight: bolder;  
+}
+
+.city1{
+    font-family: monospace;
+    font-size: 25px;
+    margin: 0px 10px 50px 10px;
+    font-weight: bolder;
+}
+
+.text{
+    font-family: monospace;
+    font-size: 25px; 
+    font-weight: bolder;
+    text-align: center;
+}
+
+.button1{
+    margin: 10px 10px 10px 13px;
+    border-radius: 100%;
+    background-color: #06b3ec;
+    font-family: monospace;
+    font-size: 25px;
+    width: 70px;
+    height: 70px;
+    margin: 10px 10px 10px 463px;
+}
+
+.number:active {
+    border-radius: 5px;
+    background-color: #686868;
+  }
+
+  .button0:active {
+    background-color: #48abe0;
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+  }
+
+  .number{
+    font-size: 20px;
+    margin: 3px;
+    border-radius: 5px;
+    background-color: #54c3ff;
+    border-color:rgba(255, 255, 255, 0) ;
+  }
+
+  .pagination{
+    margin: 25px 250px 25px 235px;
+  }
+
+  .lines{
+    height: 2px;
+    background-color:black;
+    margin: 25px 100px 10px 100px;
+  }
+
+  .spinner{
+    width: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+  }

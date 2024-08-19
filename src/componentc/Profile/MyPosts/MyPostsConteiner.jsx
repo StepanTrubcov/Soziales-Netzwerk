@@ -15,21 +15,6 @@ import {connect} from 'react-redux'
   }
  }
 
- let mapDispatchToProps = (dispatch) =>{
-  return{
-    dispatch:dispatch,
-    addPost0:(text, img)=>{
-      dispatch(addPostActionCreator(text, img));
-    },
-    newTextActionCreator:(newText)=>{
-      dispatch(newTextActionCreator(newText));
-    },
-    newImgActionCreator:(newImg)=>{
-      dispatch(newImgActionCreator(newImg));
-    }
-  }
- }
-
-const MyPostsConteiner = connect(mapStateToProps,mapDispatchToProps) (MyPosts);
+const MyPostsConteiner = connect(mapStateToProps,{addPostActionCreator,newTextActionCreator,newImgActionCreator}) (MyPosts);
 
 export default MyPostsConteiner;

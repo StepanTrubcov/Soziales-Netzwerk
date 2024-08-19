@@ -5,7 +5,6 @@ import PostConteiner from "./Post/PostConteiner";
 const MyPosts = (props) => {
   let newPostData = props.postData.map((message) => (
     <PostConteiner
-      dispatch={props.dispatch}
       message={message.message}
       like={message.like}
       bild={message.bild}
@@ -20,19 +19,17 @@ const MyPosts = (props) => {
   let addPost0 = () => {
     let text = newPostElement0.current.value;
     let img = newPostElement1.current.value;
-    props.addPost0(text,img);
+    props.addPostActionCreator(text,img);
   };
 
   let newText = () => {
     let newText = newPostElement0.current.value;
     props.newTextActionCreator(newText);
-    // props.dispatch(newTextActionCreator(newText));
   };
 
   let newImg = () => {
     let newImg = newPostElement1.current.value;
     props.newImgActionCreator(newImg)
-    // props.dispatch(newImgActionCreator(newImg));
   };
 
   return (

@@ -4,7 +4,7 @@ import c from './Music.module.css'
 const Music = () => {
     return(
         <div>
-            Music
+            <audio src="" controls></audio>
         </div>
     )
 }

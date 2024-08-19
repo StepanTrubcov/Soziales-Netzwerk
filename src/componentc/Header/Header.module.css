@@ -1,8 +1,22 @@
 .header{
   grid-area: h;
   background-color: rgb(106, 163, 255);
+  display: flex;
   }
   
   .header img{
     width: 90px;
+  }
+
+  .loginDlok{
+    float: right;
+  }
+
+  .navLink{
+    color: aliceblue;
+    font-size: 30px;
+    margin: 10px 0px 100px 980px;
+    font-family: monospace;
+    font-weight: bolder;
+    text-decoration: none;
   }
