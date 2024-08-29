@@ -1,16 +1,8 @@
-/* .posts{
-    text-align: center
-} */
-
-.newPost{
-    display: flex;
-}
-
 .button{
     font-family: monospace;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bolder;
-    height: 0px;
+    height: 40px;
     width: 100px;
 border-radius: 8px;
 color:rgb(0, 0, 0);
@@ -26,12 +18,14 @@ background-color:rgba(12, 142, 255, 0.66);
     transform: translateY(2px);
   }
 
-.line{
+  .line{
+    margin: 0px 10px 0 0;
     font-size: 25px;
     width: 200px;
     height: 35px;
+    border-radius: 30px;
 }
 
-.img{
-    white-space: nowrap;
+.form{
+  display: flex;
 }

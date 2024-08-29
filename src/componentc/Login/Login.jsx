@@ -1,21 +1,40 @@
 import React from "react";
-import c from './Login.module.css'
-import funny from '../../Images/funny.png'
-import sad from '../../Images/sad.png'
+import c from "./Login.module.css";
+import { Field, reduxForm } from "redux-form";
+
+const LoginForm = (props) => {
+  return (
+    <form onSubmit={props.handleSubmit} >
+      <div>
+        <Field placeholder={"Email"} name={'email'} component={'input'} />
+      </div>
+      <div>
+        <Field placeholder={"Password"} name={'password'} component={'input'} />
+      </div>
+      <div>
+        <Field type={"checkbox"} name={'rememderMe'} component={'input'} /> rememder me
+      </div>
+      <div>
+        <button>Login</button>
+      </div>
+    </form>
+  );
+};
+
+const LoginReduxForm = reduxForm({
+  form: "login",
+})(LoginForm);
 
 const Login = (props) => {
-    if(!props.isAuth){
-        return (<div className={c.information}>
-            <img src={sad} className={c.img} ></img>
-            <p className={c.text}>You are not registered, go to this site and register or log in to your account:</p>
-            <p className={c.link} >'https://social-network.samuraijs.com/'</p>
-        </div>
-        )
-    }
-  return  <div className={c.information}>
-    <img className={c.img} src={funny} ></img>
-        <p className={c.link}>You are registered.</p>
+  const onSubmit = (formData)=>{
+console.log(formData)
+  }
+  return (
+    <div className={c.information}>
+      <h1>Login</h1>
+      <LoginReduxForm onSubmit={onSubmit} />
     </div>
+  );
 };
 
 export default Login;

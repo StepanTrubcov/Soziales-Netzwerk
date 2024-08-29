@@ -6,10 +6,7 @@ let initialState = {
   pageSize:8,
 };
 
-console.log(initialState)
-
 const FriendsReducer = (state = initialState, action) => {
-  console.log(action.type)
   switch (action.type) {
     case SET_USERS:
       return { ...state, users: action.users };

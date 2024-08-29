@@ -3,7 +3,6 @@ import { userAPI } from "../Api/api";
 const ADD_POST = "ADD-POST";
 const UPDATTE_NEW_POST_TEXT = "UPDATTE-NEW-POST-TEXT";
 const UPDATTE_NEW_POST_IMG = "UPDATTE-NEW-POST-IMG";
-const ADD_LIKE = "ADD-LIKE";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
 
@@ -36,8 +35,6 @@ let initialState = {
     Education: "Education: МОУСОШ № 1",
   },
   status:'',
-  newPostText: "Hello",
-  newPostImg: "",
   profile: null,
 };
 
@@ -46,29 +43,14 @@ const profileReducer = (state = initialState, action) => {
     case ADD_POST:
       let newPost = {
         id: 4,
-        bild: state.newPostImg,
-        message: state.newPostText,
+        bild: action.img,
+        message: action.text,
         like: 0,
       };
       let stateCopy0 = { ...state };
       stateCopy0.postData = [...state.postData];
       stateCopy0.postData.push(newPost);
-      stateCopy0.newPostText = "";
-      stateCopy0.newPostImg = "";
       return stateCopy0;
-    case UPDATTE_NEW_POST_TEXT:
-      let stateCopy1 = { ...state };
-      stateCopy1.newPostText = action.newText;
-      return stateCopy1;
-    case UPDATTE_NEW_POST_IMG:
-      let stateCopy2 = { ...state };
-      stateCopy2.newPostImg = action.newImg;
-      return stateCopy2;
-    case ADD_LIKE:
-      let stateCopy3 = { ...state };
-      stateCopy3.postData = [...state.postData];
-      stateCopy3.postData[0].like = state.postData[0].like + 1;
-      return stateCopy3;
     case SET_USER_PROFILE:
       return { ...state, profile: action.profile };
       case SET_STATUS:
@@ -91,9 +73,6 @@ export const setStatus = (status) => ({
 export const newImgActionCreator = (newImg) => ({
   type: UPDATTE_NEW_POST_IMG,
   newImg: newImg,
-});
-export const addLikeActionCreaton = () => ({
-  type: ADD_LIKE,
 });
 export const setUserProfile = (profile) => ({
   type: SET_USER_PROFILE,

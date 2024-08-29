@@ -3,6 +3,7 @@ import c from "./Dialogs.module.css";
 import DialogsItem from './DialogsItem/DialogsItem';
 import Messages from './Message/Message'
 import { Navigate } from "react-router-dom";
+import DialogsForm from "./DialogsForm/DialogsForm";
 
 const Dialogs = (props) => {
 
@@ -10,17 +11,9 @@ let newDialogsData = props.dialogsData.map((dialog) => (<DialogsItem ava={dialog
 
 let newMessagesData = props.messagesData.map((message)=>(<Messages message={message.message} id={message.id} name={message.name} img={message.img} to={message.to} />))
 
-let newMessage = React.createRef();
-
-let addMessage =()=>{
-  let text = newMessage.current.value;
-  props.addMessageActionCreator(text)
-}
-
-
-let newText = () =>{
-  let text = newMessage.current.value;
-  props.newTextActionCreator0(text)
+let addMessage =(values)=>{
+  props.addMessageActionCreator(values.message)
+  values.message=''
 }
   
 return (
@@ -34,8 +27,7 @@ return (
       <div>
         {newMessagesData}
         <div className={c.newMessage}>
-          <textarea onChange={newText} className={c.linie} ref={newMessage} value={props.newMessageText}></textarea>
-      <button className={c.button} onClick={addMessage}>Send</button>
+          <DialogsForm onSubmit={addMessage}  />
       </div>
       </div>
     </div>

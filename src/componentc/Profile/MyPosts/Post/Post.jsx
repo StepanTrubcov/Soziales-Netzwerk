@@ -23,7 +23,7 @@ const Post = (props) => {
       <div className={c.like} >
         like: 
         { props.like }
-        <button className={c.button} onClick={addLike} >
+        <button className={c.button} >
           <img src='https://icon-icons.com/icons2/1744/PNG/512/3643770-favorite-heart-like-likes-love-loved_113432.png' />
         </button>
       </div>

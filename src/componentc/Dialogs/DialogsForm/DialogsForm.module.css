@@ -1,20 +1,19 @@
-/* .posts{
-    text-align: center
-} */
-
-.newPost{
-    display: flex;
-}
-
-.button{
-    font-family: monospace;
+.linie{
+    width: 650px;
     font-size: 20px;
+    height: 25px;
+    margin: 0 0 0 30px;
+    border-radius: 20px;
+}
+.button{
     font-weight: bolder;
-    height: 0px;
+    font-family: monospace;
+    font-size: 25px;
+    height: 30px;
     width: 100px;
 border-radius: 8px;
 color:rgb(0, 0, 0);
-background-color:rgba(12, 142, 255, 0.66); 
+background-color:rgba(12, 142, 255, 0.66);
 }
 
 .button:hover{
@@ -26,12 +25,6 @@ background-color:rgba(12, 142, 255, 0.66);
     transform: translateY(2px);
   }
 
-.line{
-    font-size: 25px;
-    width: 200px;
-    height: 35px;
-}
-
-.img{
-    white-space: nowrap;
-}
+  .form{
+    display: flex;
+  }

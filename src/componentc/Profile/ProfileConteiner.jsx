@@ -6,7 +6,7 @@ import Profile from "./Profile";
 class ProfileConteiner extends React.Component {
 
   componentDidMount(){
-    const userId = this.props.auth.id;
+    const userId = 31497;
     this.props.getStatus(userId)
   }
 

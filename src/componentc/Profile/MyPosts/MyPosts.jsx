@@ -1,6 +1,7 @@
 import React from "react";
 import c from "./MyPosts.module.css";
 import PostConteiner from "./Post/PostConteiner";
+import ProfileForm from './ProfileForm/ProfileForm'
 
 const MyPosts = (props) => {
   let newPostData = props.postData.map((message) => (
@@ -16,22 +17,10 @@ const MyPosts = (props) => {
   let newPostElement1 = React.createRef();
 
 
-  let addPost0 = () => {
-    let text = newPostElement0.current.value;
-    let img = newPostElement1.current.value;
-    props.addPostActionCreator(text,img);
+  let addPost = (values) => {
+    props.addPostActionCreator(values.text,values.image);
   };
-
-  let newText = () => {
-    let newText = newPostElement0.current.value;
-    props.newTextActionCreator(newText);
-  };
-
-  let newImg = () => {
-    let newImg = newPostElement1.current.value;
-    props.newImgActionCreator(newImg)
-  };
-
+  
   return (
     <div>
       <div>
@@ -39,26 +28,12 @@ const MyPosts = (props) => {
           <h3>New post</h3>
         </div>
         <div className={c.img}>
-          <p>
-            <h3>Text and Image address</h3>
-          </p>
         </div>
+        <div>
+        <h3>Text and Image address</h3>
+      </div>
         <div className={c.newPost}>
-          <textarea
-            onChange={newText}
-            ref={newPostElement0}
-            className={c.line}
-            value={props.newPostText}
-          />
-          <textarea
-            onChange={newImg}
-            ref={newPostElement1}
-            className={c.line}
-            value={props.newPostImg}
-          />
-          <button className={c.button} onClick={addPost0}>
-            Abb post
-          </button>
+          <ProfileForm onSubmit={addPost} />
         </div>
         <div>
           <h3>My posts</h3>
