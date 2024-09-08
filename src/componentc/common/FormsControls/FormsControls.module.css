@@ -1,0 +1,22 @@
+/* .form{
+  margin: 0px 10px 0 0;
+  font-size: 25px;
+  width: 200px;
+  height: 35px;
+  border-radius: 30px;
+} */
+
+
+.form.error input,
+.form.error textarea{
+border-color:brown;
+border-width: 5px;
+margin: 0px 10px 0 0;
+font-size: 20px;
+height: 30px;
+border-radius: 30px;
+}
+
+.form.error span{
+  color:brown;
+  }

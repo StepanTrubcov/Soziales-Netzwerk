@@ -29,3 +29,7 @@ background-color:rgba(12, 142, 255, 0.66);
 .form{
   display: flex;
 }
+
+.line.error input{
+  border-color:brown;
+}

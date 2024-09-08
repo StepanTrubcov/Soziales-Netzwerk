@@ -1,17 +1,18 @@
-import { userAPI } from "../Api/api";
+import { userAPI,HeaderAPI } from "../Api/api";
 
 const ADD_POST = "ADD-POST";
 const UPDATTE_NEW_POST_TEXT = "UPDATTE-NEW-POST-TEXT";
 const UPDATTE_NEW_POST_IMG = "UPDATTE-NEW-POST-IMG";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
 const SET_STATUS = "SET_STATUS";
+const SET_ID = 'SET_ID'
 
 let initialState = {
   postData: [
     {
       message: "Hi, how are you?",
       like: 356,
-      bild: "https://proprikol.ru/wp-content/uploads/2020/02/kartinki-na-avatarku-dlya-parnej-i-muzhchin-28.jpg",
+      bild: "https://avatars.mds.yandex.net/i?id=b66d0b6e6f13afab13e2272dfcabfcb4b3f84855-4231950-images-thumbs&n=13",
       id: 1,
     },
     {
@@ -34,6 +35,7 @@ let initialState = {
     City: "City: Rzhev",
     Education: "Education: МОУСОШ № 1",
   },
+  id:null,
   status:'',
   profile: null,
 };
@@ -49,12 +51,14 @@ const profileReducer = (state = initialState, action) => {
       };
       let stateCopy0 = { ...state };
       stateCopy0.postData = [...state.postData];
-      stateCopy0.postData.push(newPost);
+      stateCopy0.postData.unshift(newPost);
       return stateCopy0;
     case SET_USER_PROFILE:
       return { ...state, profile: action.profile };
       case SET_STATUS:
       return { ...state, status: action.status };
+      case SET_ID:
+        return { ...state, id: action.id};
     default:
       return state;
   }
@@ -68,6 +72,11 @@ export const newTextActionCreator = (newText) => ({
 export const setStatus = (status) => ({
   type: SET_STATUS,
   status: status,
+});
+
+export const setId = (id) => ({
+  type: SET_ID,
+  id: id,
 });
 
 export const newImgActionCreator = (newImg) => ({

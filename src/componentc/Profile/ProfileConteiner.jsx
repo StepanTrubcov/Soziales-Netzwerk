@@ -1,5 +1,5 @@
 import React from "react";
-import {getStatus} from '../../redux/profile-reducer'
+import {getStatus,getLogin} from '../../redux/profile-reducer'
 import { connect } from "react-redux";
 import Profile from "./Profile";
 

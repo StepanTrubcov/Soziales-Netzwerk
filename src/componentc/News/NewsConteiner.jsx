@@ -13,6 +13,7 @@ import Users from "./Users";
 import Spinner from "../common/Preloader/Preloader";
 import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { compose } from "redux";
+import {getpageSize,getisFentching,get_Users,getcurrentPage,getfollowingInProgress} from '../../redux/user-selectors'
 
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
@@ -33,16 +34,25 @@ class UsersAPIComponent extends React.Component {
   }
 }
 
-let mapStateToProps = (state) => {
-  return {
-    isFentching: state.usersPage.isFentching,
-    users: state.usersPage.users,
-    pageSize: state.usersPage.pageSize,
-    totalUsersCount: state.usersPage.totalUsersCount,
-    currentPage: state.usersPage.currentPage,
-    followingInProgress: state.usersPage.followingInProgress,
-  };
-};
+// let mapStateToProps = (state) => {
+//   return {
+//     isFentching: state.usersPage.isFentching,
+//     users: state.usersPage.users,
+//     pageSize: state.usersPage.pageSize,
+//     totalUsersCount: state.usersPage.totalUsersCount,
+//     currentPage: state.usersPage.currentPage,
+//     followingInProgress: state.usersPage.followingInProgress,
+//   };
+// };
+
+let mapStateToProps = (state) => ({
+    users: get_Users(state),
+    isFentching: getisFentching(state),
+    pageSize: getpageSize(state),
+    totalUsersCount: getcurrentPage(state),
+    currentPage: getcurrentPage(state),
+    followingInProgress: getfollowingInProgress(state),
+})
 
 export default compose(
   connect(mapStateToProps, {

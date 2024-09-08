@@ -1,15 +1,16 @@
 .linie{
     width: 650px;
+    margin: 0px 10px 0 0;
     font-size: 20px;
-    height: 25px;
+    height: 30px;
+    border-radius: 30px;
     margin: 0 0 0 30px;
-    border-radius: 20px;
 }
 .button{
     font-weight: bolder;
     font-family: monospace;
     font-size: 25px;
-    height: 30px;
+    height: 35px;
     width: 100px;
 border-radius: 8px;
 color:rgb(0, 0, 0);
