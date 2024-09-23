@@ -1,4 +1,4 @@
-const SET_USERS = "SET_USERS";
+const SET_USERS = "friends/SET_USERS";
 
 let initialState = {
   FriendsData: [],

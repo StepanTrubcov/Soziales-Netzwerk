@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import store from "./redux/redux-store";
 import HeaderConteiner from "./componentc/Header/HeaderConteiner";
 import NavbarConteiner from "./componentc/Navbar/NavbarConteiner";
 import ProfileConteiner from "./componentc/Profile/ProfileConteiner";
@@ -9,9 +10,10 @@ import Music from "./componentc/Music/Music";
 import Settings from "./componentc/Settings/Settings";
 import ProfileUsersConteiner, { withRouter } from "./componentc/ProfileUsers/ProfileUsersConteiner";
 import LoginConteiner from "./componentc/Login/LoginConteiner";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { compose } from "redux";
+import {Provider} from 'react-redux'
 import Preloader from './componentc/common/Preloader/Preloader'
 import {initialize} from './redux/app-reduser'
 
@@ -50,4 +52,15 @@ const mapStateToProps = (state) =>({
   initialized:state.app.initialized
 })
 
-export default compose( withRouter, connect(mapStateToProps,{initialize}))(App);
+let AppConteiner = compose( withRouter, connect(mapStateToProps,{initialize}))(App);
+
+
+let SamuraiJSApp = (props) =>{
+  return <BrowserRouter>
+  <Provider store={store}>
+      <AppConteiner/>
+  </Provider>
+  </BrowserRouter>
+}
+
+export default SamuraiJSApp;

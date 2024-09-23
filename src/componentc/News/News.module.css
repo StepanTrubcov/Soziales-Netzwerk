@@ -22,7 +22,8 @@
     display: flex;
     border-width:5px;
     border-style:groove;
-    border-radius: 9px;
+    border-radius: 10px;
+ width:500px;
 }
 
 .line{
@@ -100,7 +101,7 @@
   }
 
   .pagination{
-    margin: 25px 250px 25px 235px;
+display: flex;
   }
 
   .lines{

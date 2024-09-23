@@ -3,7 +3,7 @@ import c from "./MyPosts.module.css";
 import PostConteiner from "./Post/PostConteiner";
 import ProfileForm from './ProfileForm/ProfileForm'
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(props => {
   let newPostData = props.postData.map((message) => (
     <PostConteiner
       message={message.message}
@@ -11,11 +11,6 @@ const MyPosts = (props) => {
       bild={message.bild}
     />
   ));
-
-  let newPostElement0 = React.createRef();
-
-  let newPostElement1 = React.createRef();
-
 
   let addPost = (values) => {
     props.addPostActionCreator(values.text,values.image);
@@ -41,7 +36,8 @@ const MyPosts = (props) => {
       </div>
       <div className={c.posts}>{newPostData}</div>
     </div>
-  );
-};
+  )
+}
+);
 
 export default MyPosts;

@@ -1,11 +1,11 @@
 import { userAPI,HeaderAPI } from "../Api/api";
 
-const ADD_POST = "ADD-POST";
-const UPDATTE_NEW_POST_TEXT = "UPDATTE-NEW-POST-TEXT";
-const UPDATTE_NEW_POST_IMG = "UPDATTE-NEW-POST-IMG";
-const SET_USER_PROFILE = "SET_USER_PROFILE";
-const SET_STATUS = "SET_STATUS";
-const SET_ID = 'SET_ID'
+const ADD_POST = "profile/ADD-POST";
+const UPDATTE_NEW_POST_TEXT = "profile/UPDATTE-NEW-POST-TEXT";
+const UPDATTE_NEW_POST_IMG = "profile/UPDATTE-NEW-POST-IMG";
+const SET_USER_PROFILE = "profile/SET_USER_PROFILE";
+const SET_STATUS = "profile/SET_STATUS";
+const SET_ID = 'profile/SET_ID'
 
 let initialState = {
   postData: [
@@ -29,11 +29,7 @@ let initialState = {
     },
   ],
   profileInfo: {
-    img: "https://cspromogame.ru//storage/upload_images/avatars/755.jpg",
-    name: "Stepan T.",
-    Birthday: "Birthday: 17 June",
-    City: "City: Rzhev",
-    Education: "Education: МОУСОШ № 1",
+    img: "https://avatars.githubusercontent.com/u/147098611?v=4",
   },
   id:null,
   status:'',
@@ -93,29 +89,23 @@ export const addPostActionCreator = (text, img) => ({
   img: img,
 });
 
-export const getProfileUsers = (userId) => {
-  return (dispatch) => {
-    userAPI.getUsersProfile(userId).then((response) => {
+
+export const getProfileUsers = (userId) => async (dispatch) => {
+   let response = await userAPI.getUsersProfile(userId);
       dispatch(setUserProfile(response));
-    });
   };
-};
 
-export const getStatus = (userId) => {
-  return (dispatch) => {
-    userAPI.getStatus(userId).then((response) => {
+
+export const getStatus = (userId) => async (dispatch) => {
+   let response = await userAPI.getStatus(userId);
       dispatch(setStatus(response.data));
-    });
-  };
 };
 
-export const getUpdeteStatus = (status) => {
-  return (dispatch) => {
-    userAPI.updeteStatus(status).then((response) => {
+export const getUpdeteStatus = (status) => async (dispatch) => {
+   let response = await userAPI.updeteStatus(status);
       if(response.data.resultCode === 0){
-      dispatch(setStatus(status));}
-    });
-  };
+      dispatch(setStatus(status));
+    }
 };
 
 export default profileReducer;

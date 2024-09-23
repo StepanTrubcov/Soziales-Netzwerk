@@ -2,7 +2,7 @@ import { stopSubmit } from "redux-form";
 import { HeaderAPI, authAPI, userAPI } from "../Api/api";
 import { getLogin } from "./auth-reducer";
 
-const SET_INITIALIZED = "SET_INITIALIZED";
+const SET_INITIALIZED = "app/SET_INITIALIZED";
 
 let initialState = {
   initialized: false,

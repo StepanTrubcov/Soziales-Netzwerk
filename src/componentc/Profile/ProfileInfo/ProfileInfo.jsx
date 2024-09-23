@@ -1,6 +1,7 @@
 import React from 'react';
 import c from './ProfileInfo.module.css';
 import ProfileStatus from './ProfileStatus'
+import ProfileStatusWithHook from './ProfileStatusWithHook';
 
 const ProfileInfo = (props) =>{
     return( <div>
@@ -10,7 +11,7 @@ const ProfileInfo = (props) =>{
       <p className={c.name}>{props.auth.login}</p>
       <p className={c.information}>email:{props.auth.email}</p>
       <p className={c.information}>id:{props.auth.id}</p>
-      <p className={c.information}><ProfileStatus status={props.status} getUpdeteStatus={props.getUpdeteStatus} /></p>
+      <p className={c.information}><ProfileStatusWithHook status={props.status} getUpdeteStatus={props.getUpdeteStatus} /></p>
       </ul>
      </div>
      </div>

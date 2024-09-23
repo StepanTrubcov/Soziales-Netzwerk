@@ -2,10 +2,13 @@ import React from "react";
 import Post from './Post'
 import {connect} from 'react-redux'
 
- let mapDispatchToProps = (dispatch) =>{
- }
+let mapStateToProps = (state) =>{
+    return{
+      profileInfo:state.profilePage.profileInfo,
+    }
+   }
 
 
-const PostConteiner =connect(mapDispatchToProps) (Post)
+const PostConteiner =connect(mapStateToProps) (Post)
 
 export default PostConteiner;

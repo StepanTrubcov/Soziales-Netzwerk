@@ -1,26 +1,20 @@
 import React from "react";
 import c from "./Login.module.css";
 import { Field, reduxForm } from "redux-form";
-import {Input} from '../common/FormsControls/FormsControls'
+import {createField, Input} from '../common/FormsControls/FormsControls'
 import {maxLengthCreator,requiredField} from '../../utils/validators/validators'
 import { Navigate } from "react-router-dom";
 
 let maxLength30  = maxLengthCreator(30)
 
-const LoginForm = (props) => {
+const LoginForm = ({handleSubmit,error}) => {
   return (
-    <form onSubmit={props.handleSubmit} >
-      <div>
-        <Field className={c.line} validate={[requiredField,maxLength30]} placeholder={"Email"} name={'email'} component={Input} />
-      </div>
-      <div>
-        <Field type={'password'} className={c.line} validate={[requiredField,maxLength30]} placeholder={"Password"} name={'password'} component={Input} />
-      </div>
-      <div>
-        <Field type={"checkbox"} name={'rememderMe'} component={Input} /> rememder me
-      </div>
-      { props.error && <div className={c.formSymmaryError} >
-        {props.error}
+    <form onSubmit={handleSubmit} >
+      {createField(c.line,[requiredField,maxLength30],"Email",'email',Input)}
+      {createField(c.line,[requiredField,maxLength30],"Password",'password',Input,{type:'password'})}
+      {createField(c.line,[requiredField,maxLength30],"Password",'rememderMe',Input,{type:'checkbox'} , ' rememder me' )}
+      { error && <div className={c.formSymmaryError} >
+        {error}
       </div>}
       <div>
         <button>Login</button>
@@ -33,11 +27,11 @@ const LoginReduxForm = reduxForm({
   form: "login",
 })(LoginForm);
 
-const Login = (props) => {
+const Login = ({login,isAuth}) => {
   const onSubmit = (formData)=>{
-props.login(formData.email,formData.password,formData.rememderMe)
+login(formData.email,formData.password,formData.rememderMe)
   }
-  if(props.isAuth){
+  if(isAuth){
 return <Navigate replace to="/profile" />;
   }
   return (

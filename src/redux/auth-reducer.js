@@ -1,7 +1,7 @@
 import { stopSubmit } from "redux-form";
 import { HeaderAPI, authAPI, userAPI } from "../Api/api";
 
-const SET_USER_DATA = "SET_USER_DATA";
+const SET_USER_DATA = "auth/SET_USER_DATA";
 
 let initialState = {
   id: null,
@@ -24,18 +24,17 @@ export const setUserData = (id, email, login, isAuth) => ({
   payload: { id, email, login, isAuth },
 });
 
-export const getLogin = () => (dispatch) => {
-   return HeaderAPI.getHeader().then((response) => {
+export const getLogin = () => async (dispatch) => {
+ let response = await HeaderAPI.getHeader();
       if (response.resultCode === 0) {
         let { login, id, email } = response.data;
         dispatch(setUserData(id, email, login, true));
       }
-    });
   };
 
 
-export const login = (email, password, rememberMe) => (dispatch) => {
-  authAPI.login(email, password, rememberMe).then((response) => {
+export const login = (email, password, rememberMe) => async (dispatch) => {
+ let response = await authAPI.login(email, password, rememberMe);
     if (response.data.resultCode === 0) {
       dispatch(getLogin());
     } else {
@@ -45,17 +44,14 @@ export const login = (email, password, rememberMe) => (dispatch) => {
           : "Some error";
       dispatch(stopSubmit("login", { _error: message }));
     }
-  });
 };
 
-export const logout = () => {
-  return (dispatch) => {
-    authAPI.logout().then((response) => {
+export const logout = () => async (dispatch) => {
+   let response = await authAPI.logout();
       if (response.data.resultCode === 0) {
         dispatch(setUserData(null, null, null, false));
       }
-    });
   };
-};
+
 
 export default authReducer;
