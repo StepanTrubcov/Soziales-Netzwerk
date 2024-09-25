@@ -3,7 +3,7 @@ import c from "./News.module.css";
 import Paginator from "../common/Paginator/Paginator";
 import User from "./User";
 
-const Users = ({pageSize,onPageChanged,totalUsersCount,users,...props}) => {
+const Users = ({currentPage,pageSize,onPageChanged,totalUsersCount,users,...props}) => {
   return (
     <div>
       <div className={c.text}>Users</div>
@@ -12,7 +12,7 @@ const Users = ({pageSize,onPageChanged,totalUsersCount,users,...props}) => {
       ))}
       <hr className={c.lines}></hr>
       <div className={c.pagination}>
-        <Paginator totalUsersCount={totalUsersCount} pageSize={pageSize} onPageChanged={onPageChanged} />
+        <Paginator currentPage={currentPage} totalUsersCount={totalUsersCount} pagePaginatorSize={pageSize} onPageChanged={onPageChanged} />
       </div>
     </div>
   );
