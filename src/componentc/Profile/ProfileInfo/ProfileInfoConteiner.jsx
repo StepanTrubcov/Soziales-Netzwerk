@@ -3,14 +3,16 @@ import { connect } from "react-redux";
 import ProfileInfo from "./ProfileInfo";
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
 import { compose } from "redux";
-import {getStatus,getUpdeteStatus} from '../../../redux/profile-reducer'
+import {getStatus,getUpdeteStatus,savePhoto,saveProfile} from '../../../redux/profile-reducer'
 
 const mapStateToProps = (state) => {
   return {
-    profileInfo: state.profilePage.profileInfo,
+    profile:state.profilePage.profile,
+    owner:state.profilePage,
+    img: state.profilePage.img,
     auth:state.auth,
     status:state.profilePage.status,
   };
 };
 
-export default compose(connect(mapStateToProps,{getStatus,getUpdeteStatus}), withAuthRedirect)(ProfileInfo);
+export default compose(connect(mapStateToProps,{getStatus,getUpdeteStatus,savePhoto,saveProfile}), withAuthRedirect)(ProfileInfo);

@@ -1,9 +1,11 @@
 const SET_USERS = "friends/SET_USERS";
+const SET_FRIENDS = 'SET_FRIENDS'
+
 
 let initialState = {
   FriendsData: [],
-  currentPage:9,
-  pageSize:8,
+  currentPage:100,
+  pageSize:4,
 };
 
 const FriendsReducer = (state = initialState, action) => {
@@ -19,7 +21,5 @@ export const setUsers = (users) => ({
   type: SET_USERS,
   users,
 });
-
-
 
 export default FriendsReducer;

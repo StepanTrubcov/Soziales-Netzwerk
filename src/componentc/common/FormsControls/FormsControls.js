@@ -14,7 +14,7 @@ export const Input = ({meta,input,...props}) => {
   );
 };
 
-export const createField = (c,validate,placeholder,name,component,props={},text ="") =>{
+export const createField = (c='',validate='',placeholder='',name,component,props={},text ="") =>{
   return<div>
   <Field className={c} validate={validate} placeholder={placeholder} name={name} component={component} {...props} />{text}
 </div>

@@ -7,7 +7,7 @@ const Post = (props) => {
     <div className={c.post}>
       <div className={c.item}>
         <div className={c.bang}>
-          <img src={props.profileInfo.img}></img>
+          <img src={props.img}></img>
           <p className={c.name}>Stepan T.</p>
         </div>
         <div className={c.text}>

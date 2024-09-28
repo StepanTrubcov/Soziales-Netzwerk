@@ -4,11 +4,11 @@ import {connect} from 'react-redux'
 
 let mapStateToProps = (state) =>{
     return{
-      profileInfo:state.profilePage.profileInfo,
+      img:state.profilePage.img,
     }
    }
 
 
-const PostConteiner =connect(mapStateToProps) (Post)
+const PostConteiner =connect(mapStateToProps)(Post)
 
 export default PostConteiner;

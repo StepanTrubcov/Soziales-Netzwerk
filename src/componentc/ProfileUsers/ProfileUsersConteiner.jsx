@@ -25,7 +25,7 @@ export function withRouter(Children){
   }
   
   const mapStateToProps =(state)=>({
-    profile:state.profilePage.profile,
+    profile:state.profilePage.profileUsers,
     users:state.usersPage.usersReducer,
     status:state.profilePage.status,
   })

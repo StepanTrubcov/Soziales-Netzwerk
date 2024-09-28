@@ -2,8 +2,6 @@ import React from "react"
 import c from './ProfileUsers.module.css'
 import Preloader from '../common/Preloader/Preloader'
 import ava from '../../Images/ava.jpg'
-import axios from 'axios'
-import ProfileStatus from "../Profile/ProfileInfo/ProfileStatus"
 
 const ProfileUsers = (props) =>{
     if(!props.profile){

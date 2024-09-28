@@ -7,7 +7,8 @@ import DialogsForm from "./DialogsForm/DialogsForm";
 
 const Dialogs = (props) => {
 
-let newDialogsData = props.dialogsData.map((dialog) => (<DialogsItem ava={dialog.ava} name={dialog.name} id={dialog.id} />));
+
+let newDialogsData = props.dialogsData.items.map((d) => (<DialogsItem follow={d.followed} id={d.id} name={d.name} photos={d.photos.small} />));
 
 let newMessagesData = props.messagesData.map((message)=>(<Messages message={message.message} id={message.id} name={message.name} img={message.img} to={message.to} />))
 

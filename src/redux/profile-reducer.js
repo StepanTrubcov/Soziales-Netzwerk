@@ -6,6 +6,9 @@ const UPDATTE_NEW_POST_IMG = "profile/UPDATTE-NEW-POST-IMG";
 const SET_USER_PROFILE = "profile/SET_USER_PROFILE";
 const SET_STATUS = "profile/SET_STATUS";
 const SET_ID = 'profile/SET_ID'
+const SET_IMG = 'profile/SET_IMG'
+const SET_INF = 'profile/SET_INF'
+// const SET_FORM = 'profile/SET_FORM'
 
 let initialState = {
   postData: [
@@ -28,12 +31,11 @@ let initialState = {
       id: 3,
     },
   ],
-  profileInfo: {
-    img: "https://avatars.githubusercontent.com/u/147098611?v=4",
-  },
   id:null,
   status:'',
-  profile: null,
+  img:null,
+  profileUsers: null,
+  profile:null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -50,11 +52,17 @@ const profileReducer = (state = initialState, action) => {
       stateCopy0.postData.unshift(newPost);
       return stateCopy0;
     case SET_USER_PROFILE:
-      return { ...state, profile: action.profile };
+      return { ...state, profileUsers: action.profile };
       case SET_STATUS:
       return { ...state, status: action.status };
       case SET_ID:
         return { ...state, id: action.id};
+        case SET_IMG:
+          return{...state, img:action.photos }
+          case SET_INF:
+            return{...state, profile:action.profileInf}
+            // case SET_FORM:
+            //   return{...state,profileForm:action.form}
     default:
       return state;
   }
@@ -63,6 +71,11 @@ const profileReducer = (state = initialState, action) => {
 export const newTextActionCreator = (newText) => ({
   type: UPDATTE_NEW_POST_TEXT,
   newText: newText,
+});
+
+export const newImgAva = (photos) => ({
+  type: SET_IMG,
+  photos,
 });
 
 export const setStatus = (status) => ({
@@ -83,6 +96,10 @@ export const setUserProfile = (profile) => ({
   type: SET_USER_PROFILE,
   profile: profile,
 });
+export const setInf = (profileInf) => ({
+  type: SET_INF,
+  profileInf: profileInf,
+});
 export const addPostActionCreator = (text, img) => ({
   type: ADD_POST,
   text: text,
@@ -92,6 +109,9 @@ export const addPostActionCreator = (text, img) => ({
 
 export const getProfileUsers = (userId) => async (dispatch) => {
    let response = await userAPI.getUsersProfile(userId);
+      if(userId === 31497){
+        dispatch(setInf(response))
+      }
       dispatch(setUserProfile(response));
   };
 
@@ -107,5 +127,26 @@ export const getUpdeteStatus = (status) => async (dispatch) => {
       dispatch(setStatus(status));
     }
 };
+
+export const savePhoto = (file) => async (dispatch) => {
+  let response = await userAPI.savePhotos(file);
+ if(response.data.resultCode === 0){
+  dispatch(newImgAva(response.data.data.photos.small));
+}
+};
+
+export const newImg = (userId) => async (dispatch) => {
+  let response = await userAPI.getUsersProfile(userId);
+    dispatch(newImgAva(response.photos.small));
+
+ };
+
+ export const saveProfile = (profile) => async (dispatch,getState) => {
+ let id = getState().auth.id
+  let response = await userAPI.saveProfile(profile);
+  if(response.data.resultCode === 0){
+    dispatch(getProfileUsers(id))
+  }
+ };
 
 export default profileReducer;
