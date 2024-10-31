@@ -2,6 +2,7 @@
     font-weight: bolder;
     font-size: 25px;
     padding: 20px;
+    display:flex;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-family: monospace;
 }

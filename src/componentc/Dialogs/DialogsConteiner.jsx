@@ -7,13 +7,17 @@ import {connect} from "react-redux";
 import { Navigate } from "react-router-dom";
 import {withAuthRedirect} from '../../hoc/withAuthRedirect'
 import { compose } from "redux";
+import Spinner from "../common/Preloader/Preloader";
 
 class DialogsConteiner extends React.Component{
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
   render(){
-return <Dialogs {...this.props} />
+    if(this.props.dialogsData === null){
+      <Spinner/>
+    }else{
+return <Dialogs {...this.props} />}
   }
 }
 

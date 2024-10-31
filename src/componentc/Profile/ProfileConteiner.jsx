@@ -10,7 +10,6 @@ class ProfileConteiner extends React.Component {
   componentDidMount(){
     const userId = 31497;
     this.props.getStatus(userId)
-      this.props.getUsers(this.props.currentPage, this.props.pageSize);
       this.props.newImg(userId)
       this.props.getProfileUsers(userId)
   }

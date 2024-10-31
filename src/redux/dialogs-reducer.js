@@ -5,8 +5,7 @@ const UPDATTE_NEW_MESSAGE_TEXT = "UPDATTE-NEW-MESSAGE-TEXT";
 const ADD_DIALOGS = "ADD_DIALOGS";
 
 let initialState = {
-  dialogsData: [
-  ],
+  dialogsData: null,
   messagesData: [
     {
       to: "/profile",

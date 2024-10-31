@@ -7,7 +7,7 @@ import { Navigate } from "react-router-dom";
 
 let maxLength30  = maxLengthCreator(30)
 
-const LoginForm = ({handleSubmit,error}) => {
+const LoginForm = ({handleSubmit,error,captchaUrl}) => {
   return (
     <form onSubmit={handleSubmit} >
       {createField(c.line,[requiredField,maxLength30],"Email",'email',Input)}
@@ -16,6 +16,9 @@ const LoginForm = ({handleSubmit,error}) => {
       { error && <div className={c.formSymmaryError} >
         {error}
       </div>}
+      <div>
+      {captchaUrl && <div><img src={captchaUrl} /> {createField(c.line,[requiredField,maxLength30],"Symbols from image",'captcha',Input )}</div>}
+      </div>
       <div>
         <button>Login</button>
       </div>
@@ -27,9 +30,9 @@ const LoginReduxForm = reduxForm({
   form: "login",
 })(LoginForm);
 
-const Login = ({login,isAuth}) => {
+const Login = ({login,isAuth,captchaUrl}) => {
   const onSubmit = (formData)=>{
-login(formData.email,formData.password,formData.rememderMe)
+login(formData.email,formData.password,formData.rememderMe,formData.saptcha)
   }
   if(isAuth){
 return <Navigate replace to="/profile" />;
@@ -37,7 +40,7 @@ return <Navigate replace to="/profile" />;
   return (
     <div className={c.information}>
       <h1>Login</h1>
-      <LoginReduxForm onSubmit={onSubmit} />
+      <LoginReduxForm captchaUrl={captchaUrl} onSubmit={onSubmit} />
     </div>
   );
 };
