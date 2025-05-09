@@ -1,0 +1,22 @@
+.ava{
+    width: 50px;
+    border-radius: 100%;
+}
+
+.name{
+    margin: 10px;
+}
+
+.blok{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    color: aliceblue;
+}
+
+.Subscriptions{
+    margin-top: 100px;
+    color: aliceblue;
+    font-size: 17px;
+    font-weight: 800;
+}

@@ -1,0 +1,39 @@
+
+.infoEdit{
+    background-color: rgb(36, 36, 36);
+    border-radius: 10px;
+    color: aliceblue;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.button{
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(177, 177, 177);
+    border-radius: 10px;
+    color: aliceblue;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.input{
+    margin: 5px;
+    border-radius: 10px;
+    margin-left: 20px;
+    width:25%;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.inpuFile{
+    color: rgb(36, 36, 36);
+    margin: 10px;
+    margin-left: 20px;
+}
+
+
+.img{
+    width: 50px;
+    border-radius: 100%;
+}

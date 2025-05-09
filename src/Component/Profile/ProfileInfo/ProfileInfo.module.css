@@ -1,0 +1,25 @@
+.ava{
+    width: 250px;
+    margin: 10px 50px;
+    border-radius: 100%;
+}
+
+.ProfileInfo{
+    display: flex;
+    background-color: rgb(36, 36, 36);
+    border-radius: 10px;
+}
+
+.name{
+    color: aliceblue;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.info{
+    margin: 20px;
+    font-size: 30px;
+    color: aliceblue;
+    margin-left: 40px;
+    font-weight: 600;
+}

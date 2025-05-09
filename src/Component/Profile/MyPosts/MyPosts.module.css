@@ -1,0 +1,64 @@
+.newPost{
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}
+
+.text{
+    text-align: center;
+    margin: 30px;
+    color: aliceblue;
+    font-size: 30px;
+    border:2px solid;
+    border-radius: 20px;
+}
+
+.img{
+    max-width: 500px;
+    margin:10px;
+}
+
+.MyPosts{
+    background-color: rgb(36, 36, 36);
+    margin-top:10px;
+    border-radius:10px ;
+}
+
+.name{
+    font-weight: 600;
+    font-size: 30px;
+    color: aliceblue;
+    padding: 10px;
+}
+
+.input{
+    width: 300px;
+    border-radius: 10px;
+    padding: 6px;
+    font-size: 17;
+    margin: 20px;
+}
+
+.button{
+    text-align: end;
+    padding: 10px;
+    background-color: rgb(177, 177, 177);
+    border-radius: 10px;
+    color: aliceblue;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.image{
+    max-width: 80px;
+    max-height: 50px;
+}
+
+.button:hover{
+    background-color: rgb(132, 132, 132);
+}
+
+.inputFile{
+    margin: 10px;
+    color:rgb(36, 36, 36)
+}

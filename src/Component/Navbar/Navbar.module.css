@@ -1,0 +1,16 @@
+.Navbar{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.Link{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.Link:hover{
+    color: rgb(132, 132, 132);
+}

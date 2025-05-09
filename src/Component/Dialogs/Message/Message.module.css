@@ -1,0 +1,78 @@
+.message{
+    color: aliceblue;
+    font-size: 20px;
+    width: 100%;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    background-color: rgb(36, 36, 36);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.correspondence{
+    min-height: 500px;
+    background-color: rgb(36, 36, 36);
+    border-radius: 5px;
+}
+
+.divMessage{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px;
+    display: flex;
+  align-items: center;
+}
+
+.text{
+    background-color:rgb(126, 126, 126) ;
+    max-width:200px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.ava{
+    padding: 10px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.input{
+    margin-left: 20px;
+    width: 80%;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+.send{
+    min-height: 400px;
+}
+
+.button{
+    color: aliceblue;
+    font-size: 25px;
+    background-color: rgb(177, 177, 177);
+    border-radius: 20px;
+    padding: 5px;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.button:hover{
+    background-color: rgb(126, 126, 126);
+}
+
+.divMessage{
+    display: flex;
+}
+
+.img{
+    margin-right: 10px;
+    width: 50px;
+    border-radius: 100%;
+}
