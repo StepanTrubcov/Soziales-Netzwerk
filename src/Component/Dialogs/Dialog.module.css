@@ -3,32 +3,45 @@
 }
 
 .Link{
-    color: aliceblue;
     text-decoration: none;
-    font-size: 25px;
-    background-color: rgb(177, 177, 177);
-    border-radius: 20px;
-    padding: 5px;
-    font-weight: 600;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
 }
 
-.Link:hover{
-    background-color: rgb(126, 126, 126);
+.divLink:hover{
+    width: 243px;
 }
 
 .contact{
+    overflow-y: auto;   /* Вертикальная прокрутка */
+    overflow-x: hidden; /* Запрещаем горизонтальную прокрутку */
+    background: white;
+    width: 380px;
+    height: 540px;
+    padding: 20px;
     margin-left: 10px;
     border-radius: 5px;
     background-color: rgb(36, 36, 36);
 }
 
+.contact::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+}
+
 .divLink{
-    margin: 20px;
+    width: 240px;
+    text-decoration: none;
+    padding: 5px;
+    border: solid;
+    border-color: aliceblue;
+    border-radius: 3px;
     display: flex;
+    margin-top: 15px;
+    margin-right: 50px;
 }
 
 .img{
-    margin-right: 8px;
     border-radius: 100%;
-    width: 40px;
+    width: 50px;
 }

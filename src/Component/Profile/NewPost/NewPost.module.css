@@ -1,0 +1,49 @@
+.NewPost {
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: rgb(36, 36, 36);
+    font-weight: 500;
+    font-size: 25px;
+    color: aliceblue;
+    padding: 10px;
+}
+
+.butDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    width: 500px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.image {
+    max-width: 80px;
+    max-height: 50px;
+}
+
+.button:hover {
+    background-color: rgb(93, 93, 93);
+}
+
+.inputFile {
+    margin: 10px;
+    color: rgb(36, 36, 36)
+}
+
+.button{
+    margin-top: 10px;
+    padding: 10px;
+    background-color: rgb(130, 130, 130);
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+.info{
+    display: flex;
+}

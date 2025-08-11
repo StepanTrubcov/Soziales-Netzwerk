@@ -1,22 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
-import { UnFollowAC, followAC, setUsers, setCorrentPage, setTotalCount } from "../../redux/users_reducer";
-import axios from "axios";
+import { getUnFollowed, getFollowed, getUsersCreator, UnFollowAC, followAC, setTotalCount, toggleFollowingInProgress } from "../../redux/users_reducer";
 import Users from "./Users/Users";
+import Prelouder from "../common/prelouder";
+import { compose } from "redux";
+import withAuthRedirect from "../../hoc/withAuthRedirect";
+import { correntPage, followingInProgress, IsFetching, pageSize, totalCount, users } from "../../redux/users_reselect";
 
 class FindUsersAPI extends React.Component {
 
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.correntPage}&count=${this.props.pageSize}`).then(response => {
-            this.props.setUsers(response.data.items)
-        })
+        this.props.getUsersCreator(this.props.correntPage, this.props.pageSize)
     }
 
     onPageChanged = (e) => {
-        this.props.setCorrentPage(e);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${e}&count=${this.props.pageSize}`).then(response => {
-            this.props.setUsers(response.data.items)
-        })
+        this.props.getUsersCreator(e, this.props.pageSize, e)
     }
 
     render() {
@@ -29,23 +27,33 @@ class FindUsersAPI extends React.Component {
         }
 
         return <div>
+            {this.props.IsFetching ? <Prelouder /> : null}
             <Users
+                followAC={this.props.followAC}
+                UnFollowAC={this.props.UnFollowAC}
                 correntPage={this.props.correntPage}
                 onPageChanged={this.onPageChanged}
                 users={this.props.users}
                 pages={pages}
-                UnFollowAC={this.props.UnFollowAC}
-                followAC={this.props.followAC}
+                toggleFollowingInProgress={this.props.toggleFollowingInProgress}
+                followingInProgress={this.props.followingInProgress}
+                getFollowed={this.props.getFollowed}
+                getUnFollowed={this.props.getUnFollowed}
             />
         </div>
     }
 }
 
 const mapStateToProps = (state) => ({
-    users: state.users.users,
-    totalCount:state.users.totalCount,
-    pageSize:state.users.pageSize,
-    correntPage:state.users.correntPage
+    users: users(state),
+    totalCount: totalCount(state),
+    pageSize: pageSize(state),
+    correntPage: correntPage(state),
+    IsFetching: IsFetching(state),
+    followingInProgress: followingInProgress(state),
 })
 
-export default connect(mapStateToProps, {setTotalCount, setCorrentPage, UnFollowAC, followAC, setUsers })(FindUsersAPI)
+export default compose(
+    connect(mapStateToProps, { getUnFollowed, getFollowed, getUsersCreator, setTotalCount, UnFollowAC, followAC }),
+    withAuthRedirect
+)(FindUsersAPI)

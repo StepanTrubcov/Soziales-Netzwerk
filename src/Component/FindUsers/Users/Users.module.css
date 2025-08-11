@@ -1,39 +1,69 @@
-.info{
-    background-color: rgb(36, 36, 36);
-    color: aliceblue;
-    width: 100%;
-    font-size: 30px;
-    display: flex;
-    border-radius: 10px;
-    justify-content:space-between;
+.Link {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
 }
 
-.blok{
-    display: flex;
-    margin-bottom: 10px;
+.status {
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
 }
 
-.ava{
+.ava {
     margin: 10px;
     width: 100px;
     border-radius: 100%;
 }
 
-.pagination{
+.pagination {
     margin: 10px;
-    font-size: 20px;
+    font-size: 25px;
+    color: aliceblue;
+    font-weight: 600;
+}
+
+.paginationActiv {
+    text-decoration: underline;
+    margin: 10px;
+    font-size: 25px;
+    font-weight: 900;
     color: aliceblue;
 }
 
-.paginationActiv{
-    text-decoration:underline;
+.Pagin {
+    display: flex;
     margin: 10px;
-    font-size: 20px;
-    font-weight: 800;
-    color: aliceblue;
+    justify-content: center;
 }
 
-.Pagin{
+.button {
+    margin: 20px;
+    padding: 10px;
+    background-color: rgb(130, 130, 130);
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+.button:hover {
+    background-color: rgb(93, 93, 93);
+}
+
+.infoAvaButton{
+    margin: 10px;
+}
+
+.signs{
     display: flex;
     flex-wrap: wrap;
+}
+
+.blok{
+    border-radius: 5px;
+    text-align: center;
+    background-color: rgb(36, 36, 36);
+    width: 290px;
+    margin-right: 12px;
+    margin-top: 15px;
 }

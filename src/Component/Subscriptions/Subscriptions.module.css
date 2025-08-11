@@ -15,8 +15,19 @@
 }
 
 .Subscriptions{
-    margin-top: 100px;
+    overflow-y: auto;   /* Вертикальная прокрутка */
+    overflow-x: hidden; 
+    background-color: rgb(36, 36, 36);
+    font-size: 20px;
     color: aliceblue;
-    font-size: 17px;
-    font-weight: 800;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    height: 530px;
+    width: 28%;
+}
+
+.Subscriptions::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
 }

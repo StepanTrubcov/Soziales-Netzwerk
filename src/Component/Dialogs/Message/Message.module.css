@@ -1,12 +1,13 @@
-.message{
+.message {
     color: aliceblue;
     font-size: 20px;
     width: 100%;
-    font-size: 30px;
-    font-weight: 800;
+    font-size: 25px;
+    font-weight: 500;
 }
 
-.info{
+.info {
+    height: 70px;
     display: flex;
     align-items: center;
     background-color: rgb(36, 36, 36);
@@ -14,65 +15,88 @@
     margin-bottom: 10px;
 }
 
-.correspondence{
+.correspondence {
     min-height: 500px;
     background-color: rgb(36, 36, 36);
     border-radius: 5px;
 }
 
-.divMessage{
+.divMessage {
     font-size: 25px;
     font-weight: 500;
     margin: 10px;
     display: flex;
-  align-items: center;
+    align-items: center;
 }
 
-.text{
-    background-color:rgb(126, 126, 126) ;
-    max-width:200px;
+.text {
+    background-color: rgb(126, 126, 126);
+    max-width: 200px;
     border-radius: 10px;
-    padding: 10px;
+    padding: 5px;
+    margin: 5px;
+    font-weight: 600;
+    font-size: 20px;
 }
 
-.ava{
+.ava {
     padding: 10px;
     width: 50px;
     border-radius: 100%;
 }
 
-.input{
+.input {
     margin-left: 20px;
-    width: 80%;
+    width: 75%;
     padding: 5px;
     font-size: 18px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
-.send{
+.send {
+    margin: 10px;
     min-height: 400px;
 }
 
-.button{
-    color: aliceblue;
-    font-size: 25px;
-    background-color: rgb(177, 177, 177);
-    border-radius: 20px;
-    padding: 5px;
-    font-weight: 600;
-    margin: 10px;
+.button {
+    margin: 15px;
+    padding: 10px;
+    background-color: rgb(130, 130, 130);
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
 }
 
-.button:hover{
-    background-color: rgb(126, 126, 126);
+.button:hover {
+    background-color: rgb(93, 93, 93);
 }
 
-.divMessage{
+.divMessage {
     display: flex;
 }
 
-.img{
+.img {
     margin-right: 10px;
     width: 50px;
     border-radius: 100%;
+}
+
+.bang {
+    display: flex;
+    padding: 10px;
+}
+
+.imgBang {
+    width: 50px;
+    border-radius: 100%;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.start {
+    text-align: center;
 }
