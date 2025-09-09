@@ -13,3 +13,11 @@
     margin-top: 10px;
     font-size: 15px;
 }
+
+.inputField {
+    font-size: 20px;
+    border-radius: 5px;
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 20px;
+}

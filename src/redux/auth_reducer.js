@@ -1,8 +1,8 @@
 import { stopSubmit } from "redux-form"
 import { headerAPI } from "../Api/Api"
 
-const SET_USER_DATA = 'SET_USER_DATA'
-const DELETE_DATA = 'DELETE_DATA'
+const SET_USER_DATA = 'auth/SET_USER_DATA'
+const DELETE_DATA = 'auth/DELETE_DATA'
 
 const intitialState = {
     userId: null,
@@ -39,30 +39,28 @@ const deleteData = () => ({
 })
 
 
-export const getUserData = () => (dispatch) => {
-    return headerAPI.getAuth().then(response => {
-        if (response.resultCode === 0) {
-            let { id, email, login } = response.data;
-            dispatch(setUserData(id, email, login))
-        }
-    })  
+export const getUserData = () => async (dispatch) => {
+    let response = await headerAPI.getAuth()
+    if (response.resultCode === 0) {
+        let { id, email, login } = response.data;
+        dispatch(setUserData(id, email, login))
+    }
 }
 
-export const addLogin = (email, password, rememberMe) => (dispatch) => {
-    headerAPI.getLogin(email, password, rememberMe).then(response => {
-        if (response.resultCode === 0) {
-            dispatch(getUserData())
-        } else {
-            dispatch(stopSubmit('login', { _error: response.messages }))
-        }
-    })
+export const addLogin = (email, password, rememberMe) => async (dispatch) => {
+    let response = await headerAPI.getLogin(email, password, rememberMe)
+    if (response.resultCode === 0) {
+        dispatch(getUserData())
+    } else {
+        dispatch(stopSubmit('login', { _error: response.messages }))
+    }
 }
 
-export const deleteLogin = () => (dispatch) => {
-    headerAPI.deleteLogin().then(response => {
+export const deleteLogin = () => async (dispatch) => {
+   await headerAPI.deleteLogin()
         dispatch(deleteData())
         dispatch(getUserData())
-    })
+
 }
 
 

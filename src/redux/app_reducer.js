@@ -1,6 +1,6 @@
 import { getUserData } from './auth_reducer'
 
-const SET_INITIALIZED = 'SET_INITIALIZED'
+const SET_INITIALIZED = 'app/SET_INITIALIZED'
 
 const intitialState = {
     initialized: false,
@@ -19,7 +19,7 @@ const setInitialized = () => ({
     type: SET_INITIALIZED,
 })
 
-export const initialize = () => (dispatch) => {
+export const initialize = () => async (dispatch) => {
     const promise = dispatch(getUserData())
 
     Promise.all([promise]).then(

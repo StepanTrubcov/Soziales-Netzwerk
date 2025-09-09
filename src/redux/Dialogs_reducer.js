@@ -1,8 +1,8 @@
 import { dialogsAPI } from "../Api/Api"
 
-const ADD_MESSAGE = 'ADD_MESSAGE'
-const SET_DIALOGS = 'SET_DIALOGS'
-const SET_BANG = 'SET_BANG'
+const ADD_MESSAGE = 'dialogs/ADD_MESSAGE'
+const SET_DIALOGS = 'dialogs/SET_DIALOGS'
+const SET_BANG = 'dialogs/SET_BANG'
 
 const dialogStore = {
     message: [],

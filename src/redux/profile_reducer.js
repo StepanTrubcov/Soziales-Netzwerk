@@ -1,11 +1,11 @@
 import { profileAPI } from "../Api/Api"
 
-const ADD_POST = 'ADD_POST'
-const ADD_INFO = 'ADD_INFO'
-const SET_PROFILE = 'SET_PROFILE'
-const NEW_POST_WINDOW = 'NEW_POST_WINDOW'
-const EDIT_PROFILE_WINDOW = 'EDIT_PROFILE_WINDOW'
-const ADD_STATUS = 'ADD_STATUS'
+const ADD_POST = 'propfile/ADD_POST'
+const ADD_INFO = 'propfile/ADD_INFO'
+const SET_PROFILE = 'propfile/SET_PROFILE'
+const NEW_POST_WINDOW = 'propfile/NEW_POST_WINDOW'
+const EDIT_PROFILE_WINDOW = 'propfile/EDIT_PROFILE_WINDOW'
+const ADD_STATUS = 'propfile/ADD_STATUS'
 
 const myPostStore = {
   postData: [
@@ -85,32 +85,26 @@ export const setEditProfileWindow = (EditProfileWindow) => ({
 
 
 
-export const getProfile = (profileId) => (dispatch) => {
-  profileAPI.getProfileId(profileId).then(response => {
-    dispatch(setProfile(response))
-  })
+export const getProfile = (profileId) => async (dispatch) => {
+  let response = await profileAPI.getProfileId(profileId)
+  dispatch(setProfile(response))
 }
 
-export const getStatus = (profileId) => (dispatch) => {
-  profileAPI.getAboutMe(profileId).then(response => {
-    dispatch(addStatus(response))
-  })
+export const getStatus = (profileId) => async (dispatch) => {
+  let response = await profileAPI.getAboutMe(profileId)
+  dispatch(addStatus(response))
 }
 
-export const NewStatus = (status) => (dispatch) => {
-  profileAPI.newStatusApi(status).then(response => {
+export const NewStatus = (status) => async (dispatch) => {
+ let response = await profileAPI.newStatusApi(status)
     if (response.resultCode === 0) {
       dispatch(addStatus(status))
     }
-  })
+ 
 }
 
-export const NewPhoto = (photo) => (dispatch) => {
-  profileAPI.newPhotoApi(photo).then(response => {
-    if (response.resultCode === 0) {
-      
-    }
-  })
+export const NewPhoto = (photo) => async (dispatch) => {
+  await profileAPI.newPhotoApi(photo)
 }
 
 

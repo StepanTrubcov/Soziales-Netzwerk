@@ -1,6 +1,6 @@
 import { dialogsAPI } from "../Api/Api"
 
-const SET_USERS_DATA = 'SET_USERS_DATA'
+const SET_USERS_DATA = 'subscriptions/SET_USERS_DATA'
 
 const intitialState = {
     users: [],
@@ -21,10 +21,10 @@ const setUserData = (users) => ({
 })
 
 
-export const getUserData = (correntPage, pageSize) => (dispatch) => {
-    dialogsAPI.getUsers(correntPage, pageSize).then(response => {
-        dispatch(setUserData(response.items))
-    })
+export const getUserData = (correntPage, pageSize) => async (dispatch) => {
+    let response = await dialogsAPI.getUsers(correntPage, pageSize)
+    dispatch(setUserData(response.items))
+
 }
 
 

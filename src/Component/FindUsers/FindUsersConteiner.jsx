@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getUnFollowed, getFollowed, getUsersCreator, UnFollowAC, followAC, setTotalCount, toggleFollowingInProgress } from "../../redux/users_reducer";
+import { getUnFollowed, getFollowed, getUsersCreator, UnFollowAC, followAC } from "../../redux/users_reducer";
 import Users from "./Users/Users";
 import Prelouder from "../common/prelouder";
 import { compose } from "redux";
@@ -27,14 +27,15 @@ class FindUsersAPI extends React.Component {
         }
 
         return <div>
-            {this.props.IsFetching ? <Prelouder /> : null}
+            {this.props.IsFetching ? <Prelouder /> : ''}
             <Users
+                totalCount={this.props.totalCount}
+                pageSize={this.props.pageSize}
                 followAC={this.props.followAC}
                 UnFollowAC={this.props.UnFollowAC}
                 correntPage={this.props.correntPage}
                 onPageChanged={this.onPageChanged}
                 users={this.props.users}
-                pages={pages}
                 toggleFollowingInProgress={this.props.toggleFollowingInProgress}
                 followingInProgress={this.props.followingInProgress}
                 getFollowed={this.props.getFollowed}
@@ -54,6 +55,6 @@ const mapStateToProps = (state) => ({
 })
 
 export default compose(
-    connect(mapStateToProps, { getUnFollowed, getFollowed, getUsersCreator, setTotalCount, UnFollowAC, followAC }),
+    connect(mapStateToProps, { getUnFollowed, getFollowed, getUsersCreator, UnFollowAC, followAC }),
     withAuthRedirect
 )(FindUsersAPI)

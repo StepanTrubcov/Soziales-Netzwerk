@@ -2,14 +2,15 @@ import './App.css';
 import Navbar from './Component/Navbar/Navbar';
 import Header from './Component/Header/HeaderConteiner';
 import { Route, Routes } from 'react-router-dom';
-import Profile from './Component/Profile/ProfileConteiner';
-import Dialog from './Component/Dialogs/DialogsConteiner';
 import FindUsers from './Component/FindUsers/FindUsersConteiner';
 import Login from './Component/Login/Login';
 import { connect } from 'react-redux';
 import React from 'react';
 import { initialize } from './redux/app_reducer'
 import Prelouder from './Component/common/prelouder';
+
+const Dialog = React.lazy(() => import('./Component/Dialogs/DialogsConteiner'))
+const Profile = React.lazy(() => import('./Component/Profile/ProfileConteiner'))
 
 class App extends React.Component {
 
@@ -43,11 +44,13 @@ class App extends React.Component {
               <Navbar />
             </div>
             <div className='content'>
-              <Routes>
-                <Route path="/profile/:userId?" element={<Profile />} />
-                <Route path="/dialog/:userId?" element={<Dialog />} />
-                <Route path="/findUsers" element={<FindUsers />} />
-              </Routes>
+              <React.Suspense fallback={<Prelouder />} >
+                <Routes>
+                  <Route path="/profile/:userId?" element={<Profile />} />
+                  <Route path="/dialog/:userId?" element={<Dialog />} />
+                  <Route path="/findUsers" element={<FindUsers />} />
+                </Routes>
+              </React.Suspense>
             </div>
           </div>
         </div>

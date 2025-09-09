@@ -20,6 +20,7 @@ const store = configureStore({
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
 
+
 window.store = store;
 
 export default store;

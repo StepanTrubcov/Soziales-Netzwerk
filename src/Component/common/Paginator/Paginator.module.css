@@ -1,0 +1,31 @@
+.pagination {
+    margin: 10px;
+    font-size: 25px;
+    color: aliceblue;
+    font-weight: 600;
+}
+
+.paginationActiv {
+    text-decoration: underline;
+    margin: 10px;
+    font-size: 25px;
+    font-weight: 900;
+    color: aliceblue;
+}
+
+.Pagin {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+}
+
+.button {
+    background-color: rgb(130, 130, 130);
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+.button:hover {
+    background-color: rgb(93, 93, 93);
+}
